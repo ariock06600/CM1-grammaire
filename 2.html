@@ -3,36 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grammaire CM1 - Les formes négative et exclamative (Les Jeux Olympiques)</title>
+  <title>Grammaire CM1 - Les formes négative et exclamative (Stop au harcèlement scolaire)</title>
   <style>
     /* ==========================================================================
-       VARIABLES & THÈME SOMBRE MODERNE
+       1. VARIABLES & THÈME SOMBRE MODERNE
        ========================================================================== */
     :root {
       --bg-main: #0f172a;
       --bg-card: #1e293b;
       --bg-card-alt: #263349;
-      --bg-input: #0f172a;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --border-color: #334155;
 
-      /* Couleurs d'accentuation */
+      /* Couleurs d'accentuation vives */
       --accent-blue: #3b82f6;
       --accent-blue-hover: #2563eb;
       --accent-green: #10b981;
-      --accent-green-bg: rgba(16, 185, 129, 0.15);
+      --accent-green-bg: rgba(16, 185, 129, 0.16);
       --accent-red: #ef4444;
-      --accent-red-bg: rgba(239, 68, 68, 0.15);
+      --accent-red-bg: rgba(239, 68, 68, 0.16);
       --accent-amber: #f59e0b;
-      --accent-amber-bg: rgba(245, 158, 11, 0.15);
+      --accent-amber-bg: rgba(245, 158, 11, 0.16);
       --accent-purple: #8b5cf6;
-      --accent-purple-bg: rgba(139, 92, 246, 0.15);
+      --accent-purple-bg: rgba(139, 92, 246, 0.16);
 
       --radius-lg: 16px;
       --radius-md: 10px;
       --radius-sm: 6px;
-      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45);
     }
 
     * {
@@ -50,7 +49,7 @@
     }
 
     /* ==========================================================================
-       BARRE SUPÉRIEURE & BANNIÈRE
+       2. BARRE SUPÉRIEURE & BANNIÈRE DE TITRE
        ========================================================================== */
     .top-bar {
       background-color: #090d16;
@@ -85,26 +84,24 @@
     }
 
     .score-badge {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(139, 92, 246, 0.2));
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.22), rgba(139, 92, 246, 0.22));
       border: 1px solid var(--accent-amber);
       color: #fde68a;
-      padding: 0.5rem 1.1rem;
+      padding: 0.5rem 1.15rem;
       border-radius: 999px;
       font-weight: 700;
       font-size: 0.95rem;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.45rem;
       box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
     }
 
     .hero-banner {
-      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 50%, #0f172a 100%);
-      border-bottom: 2px solid var(--accent-blue);
+      background: linear-gradient(135deg, #1e3a8a 0%, #4c1d95 55%, #0f172a 100%);
+      border-bottom: 2px solid var(--accent-purple);
       padding: 2rem 1.5rem;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
 
     .hero-tag {
@@ -115,7 +112,7 @@
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      padding: 0.25rem 0.8rem;
+      padding: 0.25rem 0.85rem;
       border-radius: 999px;
       margin-bottom: 0.75rem;
     }
@@ -128,41 +125,40 @@
     }
 
     .hero-objective {
-      max-width: 720px;
+      max-width: 740px;
       margin: 0 auto;
-      color: #cbd5e1;
+      color: #e2e8f0;
       font-size: 1rem;
     }
 
     /* ==========================================================================
-       BARRE DE NAVIGATION STICKY
+       3. BARRE DE NAVIGATION STICKY
        ========================================================================== */
     .sticky-nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      background-color: rgba(15, 23, 42, 0.95);
+      background-color: rgba(15, 23, 42, 0.96);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border-color);
-      padding: 0.75rem 1rem;
+      padding: 0.7rem 1rem;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      gap: 0.45rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
     }
 
     .nav-btn {
       background-color: var(--bg-card);
       color: var(--text-muted);
       border: 1px solid var(--border-color);
-      padding: 0.45rem 0.9rem;
+      padding: 0.45rem 0.85rem;
       border-radius: var(--radius-sm);
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       cursor: pointer;
       transition: all 0.2s ease;
-      position: relative;
     }
 
     .nav-btn:hover {
@@ -192,7 +188,7 @@
     }
 
     /* ==========================================================================
-       CONTENEUR PRINCIPAL & CARTES
+       4. CONTENEUR PRINCIPAL & CARTES DE SECTION
        ========================================================================== */
     .container {
       max-width: 960px;
@@ -209,7 +205,7 @@
       border-radius: var(--radius-lg);
       padding: 1.75rem;
       box-shadow: var(--shadow);
-      animation: fadeIn 0.3s ease;
+      animation: fadeIn 0.25s ease;
     }
 
     .section-card.hidden {
@@ -217,7 +213,7 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
@@ -236,7 +232,7 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 700;
     }
 
@@ -261,11 +257,11 @@
       border-radius: 999px;
       background-color: var(--accent-purple-bg);
       color: #c4b5fd;
-      border: 1px solid rgba(139, 92, 246, 0.3);
+      border: 1px solid rgba(139, 92, 246, 0.35);
     }
 
     /* ==========================================================================
-       PHASE DE RECHERCHE & LEÇON ("J'AI COMPRIS")
+       5. LEÇON : PHASE DE DÉCOUVERTE & RÈGLE "J'AI COMPRIS"
        ========================================================================== */
     .reading-box {
       background-color: var(--bg-main);
@@ -273,7 +269,7 @@
       padding: 1.25rem 1.5rem;
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
       margin-bottom: 1.5rem;
-      font-size: 1.08rem;
+      font-size: 1.06rem;
       line-height: 1.8;
     }
 
@@ -326,7 +322,7 @@
       background-color: rgba(59, 130, 246, 0.2);
       color: #93c5fd;
       border: 1px solid var(--accent-blue);
-      padding: 0.35rem 0.85rem;
+      padding: 0.4rem 0.85rem;
       border-radius: var(--radius-sm);
       cursor: pointer;
       font-size: 0.85rem;
@@ -351,9 +347,9 @@
       display: block;
     }
 
-    /* Règle "J'ai compris" */
+    /* Encadré Règle */
     .rule-box {
-      background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(30, 41, 59, 0.6) 100%);
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.09) 0%, rgba(30, 41, 59, 0.7) 100%);
       border: 2px solid var(--accent-green);
       border-radius: var(--radius-lg);
       padding: 1.5rem;
@@ -389,14 +385,14 @@
       left: 0;
       color: var(--accent-green);
       font-size: 0.8rem;
-      top: 0.25rem;
+      top: 0.28rem;
     }
 
     .tag-neg {
       background-color: var(--accent-red-bg);
       color: #fca5a5;
       border: 1px solid var(--accent-red);
-      padding: 0.1rem 0.4rem;
+      padding: 0.1rem 0.42rem;
       border-radius: 4px;
       font-weight: 700;
     }
@@ -405,7 +401,7 @@
       background-color: var(--accent-amber-bg);
       color: #fde68a;
       border: 1px solid var(--accent-amber);
-      padding: 0.1rem 0.4rem;
+      padding: 0.1rem 0.42rem;
       border-radius: 4px;
       font-weight: 700;
     }
@@ -431,7 +427,7 @@
     }
 
     /* ==========================================================================
-       CONSIGNES & EXEMPLES D'EXERCICES
+       6. CONSIGNES & EXEMPLES D'EXERCICES
        ========================================================================== */
     .consigne {
       font-size: 1.05rem;
@@ -441,7 +437,7 @@
     }
 
     .exemple-box {
-      background-color: rgba(59, 130, 246, 0.1);
+      background-color: rgba(59, 130, 246, 0.12);
       border: 1px dashed var(--accent-blue);
       border-radius: var(--radius-md);
       padding: 0.85rem 1.1rem;
@@ -460,7 +456,7 @@
     }
 
     /* ==========================================================================
-       INTERACTIVITÉ 1 : MOTS CLIQUABLES (TOKENS - EX 1 & EX 2)
+       7. EXERCICES DE REPÉRAGE : MOTS CLIQUABLES (EX 1 & EX 2)
        ========================================================================== */
     .token-list {
       display: flex;
@@ -477,7 +473,6 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 0.35rem;
-      transition: border-color 0.2s;
     }
 
     .row-letter {
@@ -491,7 +486,7 @@
       background-color: var(--bg-card);
       color: var(--text-main);
       border: 1px solid var(--border-color);
-      padding: 0.3rem 0.6rem;
+      padding: 0.32rem 0.62rem;
       border-radius: 6px;
       cursor: pointer;
       font-size: 1rem;
@@ -527,7 +522,7 @@
     }
 
     /* ==========================================================================
-       INTERACTIVITÉ 2 : CLASSEMENT & TABLEAU DYNAMIQUE (EX 3 & EX 4)
+       8. EXERCICES DE CLASSEMENT & TABLEAU DYNAMIQUE (EX 3 & EX 4)
        ========================================================================== */
     .classify-grid {
       display: grid;
@@ -616,7 +611,7 @@
     }
 
     /* ==========================================================================
-       INTERACTIVITÉ 3 : TRANSFORMATION DE PHRASES (INPUTS - EX 5 À 8)
+       9. EXERCICES DE TRANSFORMATION : CHAMPS DE TEXTE (EX 5 À 9)
        ========================================================================== */
     .transform-list {
       display: flex;
@@ -678,7 +673,7 @@
     }
 
     /* ==========================================================================
-       BARRE D'ACTIONS DES EXERCICES & FEEDBACK GLOBAL
+       10. BARRE D'ACTIONS DES EXERCICES & FEEDBACK
        ========================================================================== */
     .exercise-footer {
       margin-top: 1.5rem;
@@ -731,19 +726,14 @@
     }
 
     .btn-nav-step {
-      background-color: rgba(59, 130, 246, 0.15);
+      background-color: rgba(59, 130, 246, 0.16);
       color: #93c5fd;
-      border: 1px solid rgba(59, 130, 246, 0.4);
+      border: 1px solid rgba(59, 130, 246, 0.45);
     }
 
-    .btn-nav-step:hover:not(:disabled) {
+    .btn-nav-step:hover {
       background-color: var(--accent-blue);
       color: white;
-    }
-
-    .btn-nav-step:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
     }
 
     .feedback-banner {
@@ -768,15 +758,6 @@
       color: #fca5a5;
     }
 
-    /* Encart final Production écrite (Ex 9-10 du manuel) */
-    .bonus-box {
-      background-color: var(--bg-main);
-      border: 1px dashed var(--accent-purple);
-      border-radius: var(--radius-md);
-      padding: 1.25rem;
-      margin-top: 1rem;
-    }
-
     @media (max-width: 600px) {
       .section-card {
         padding: 1.2rem;
@@ -794,51 +775,52 @@
 <body>
 
   <!-- ========================================================================
-       1. BARRE SUPÉRIEURE (Lien Sommaire + Compteur de score global)
+       BARRE SUPÉRIEURE : LIEN SOMMAIRE + COMPTEUR GLOBAL DE SCORE
        ======================================================================== -->
   <header class="top-bar">
     <a href="https://ariock06600.github.io/CM1-grammaire/" class="btn-sommaire">
       ⬅ Sommaire
     </a>
     <div class="score-badge" id="globalScore">
-      ⭐ Exercices validés : 0 / 8
+      ⭐ Exercices validés : 0 / 9
     </div>
   </header>
 
   <!-- ========================================================================
-       2. BANNIÈRE DE TITRE DE LA LEÇON
+       BANNIÈRE DE TITRE DE LA LEÇON
        ======================================================================== -->
   <section class="hero-banner">
-    <span class="hero-tag">Grammaire • CM1 • Thème : Les Jeux Olympiques 🏅</span>
+    <span class="hero-tag">Grammaire • CM1 • Thème : Le harcèlement scolaire 🤝</span>
     <h1>2. Les formes négative et exclamative</h1>
     <p class="hero-objective">
-      À la fin de cette leçon, tu sauras reconnaître et construire des phrases aux formes négative et exclamative pour raconter les exploits des Jeux Olympiques !
+      À la fin de cette leçon, tu sauras utiliser des phrases aux formes négative et exclamative pour rédiger une charte de solidarité contre le harcèlement scolaire.
     </p>
   </section>
 
   <!-- ========================================================================
-       3. BARRE DE NAVIGATION STICKY
+       BARRE DE NAVIGATION STICKY
        ======================================================================== -->
   <nav class="sticky-nav" aria-label="Navigation des sections">
-    <button class="nav-btn active" data-target="lecon">📖 Leçon</button>
-    <button class="nav-btn" data-target="ex1" id="nav-ex1">Ex. 1</button>
-    <button class="nav-btn" data-target="ex2" id="nav-ex2">Ex. 2</button>
-    <button class="nav-btn" data-target="ex3" id="nav-ex3">Ex. 3</button>
-    <button class="nav-btn" data-target="ex4" id="nav-ex4">Ex. 4</button>
-    <button class="nav-btn" data-target="ex5" id="nav-ex5">Ex. 5</button>
-    <button class="nav-btn" data-target="ex6" id="nav-ex6">Ex. 6</button>
-    <button class="nav-btn" data-target="ex7" id="nav-ex7">Ex. 7</button>
-    <button class="nav-btn" data-target="ex8" id="nav-ex8">Ex. 8</button>
-    <button class="nav-btn" data-target="all">📋 Tout afficher</button>
+    <button type="button" class="nav-btn active" data-target="lecon">📖 Leçon</button>
+    <button type="button" class="nav-btn" data-target="ex1" id="nav-ex1">Ex. 1</button>
+    <button type="button" class="nav-btn" data-target="ex2" id="nav-ex2">Ex. 2</button>
+    <button type="button" class="nav-btn" data-target="ex3" id="nav-ex3">Ex. 3</button>
+    <button type="button" class="nav-btn" data-target="ex4" id="nav-ex4">Ex. 4</button>
+    <button type="button" class="nav-btn" data-target="ex5" id="nav-ex5">Ex. 5</button>
+    <button type="button" class="nav-btn" data-target="ex6" id="nav-ex6">Ex. 6</button>
+    <button type="button" class="nav-btn" data-target="ex7" id="nav-ex7">Ex. 7</button>
+    <button type="button" class="nav-btn" data-target="ex8" id="nav-ex8">Ex. 8</button>
+    <button type="button" class="nav-btn" data-target="ex9" id="nav-ex9">Ex. 9</button>
+    <button type="button" class="nav-btn" data-target="all">📋 Tout afficher</button>
   </nav>
 
   <!-- ========================================================================
-       CONTENU PRINCIPAL
+       CONTENEUR PRINCIPAL
        ======================================================================== -->
   <main class="container">
 
     <!-- ======================================================================
-         SECTION LEÇON : CHERCHONS + J'AI COMPRIS
+         SECTION LEÇON : CHERCHONS POUR CONSTRUIRE LA RÈGLE + J'AI COMPRIS
          ====================================================================== -->
     <article class="section-card" id="sec-lecon">
       <div class="section-header">
@@ -851,12 +833,12 @@
 
       <div class="reading-box">
         <p>
-          La flamme olympique arrive enfin dans le stade de Paris. Regardez les gradins remplis de spectateurs venus du monde entier.
-          <span class="text-blue-highlight">Quel stade magnifique !</span>
-          <span class="text-blue-highlight">Comme on aimerait gagner une médaille d'or !</span>
+          Dans la cour de récréation, Léo voit Camille assise toute seule sur un banc. Il décide d'aller lui parler et lui propose de jouer avec son groupe d'amis.
+          <span class="text-blue-highlight">Quel geste magnifique !</span>
+          <span class="text-blue-highlight">Comme on aimerait voir cette solidarité partout !</span>
         </p>
         <p>
-          Mais pendant la finale du relais, la course est très difficile. Ce n'est pas le moment de relâcher les efforts. Ne perdons plus une seule seconde ! Il ne faut jamais abandonner avant la ligne d'arrivée. Les athlètes ne doivent ni se décourager, ni oublier l'esprit d'équipe !
+          Depuis quelques semaines, certains élèves se moquaient de Camille. Ce n'est pas normal de laisser un camarade souffrir en silence. Ne laissons plus les moqueries s'installer dans notre école ! Il ne faut jamais rester témoin sans agir. Les élèves ne doivent ni insulter leurs camarades, ni rejeter quelqu'un de différent !
         </p>
       </div>
 
@@ -867,7 +849,7 @@
               <span class="q-letter">A</span>
               <strong>Dans le 2<sup>e</sup> paragraphe, relève les marques de négation. Quel est le mot toujours présent ? Fais la liste des mots qui l'accompagnent.</strong>
             </div>
-            <button class="btn-reveal" onclick="toggleAnswer('ans-a', this)">👁 Afficher la réponse</button>
+            <button type="button" class="btn-reveal" data-answer="ans-a">👁 Afficher la réponse</button>
           </div>
           <div class="q-answer" id="ans-a">
             <strong>Réponse :</strong> Les marques de négation sont : <em>n' ... pas</em>, <em>Ne ... plus</em>, <em>ne ... jamais</em>, <em>ne ... ni ... ni</em>.<br>
@@ -881,7 +863,7 @@
               <span class="q-letter">B</span>
               <strong>Quels sentiments expriment les phrases en bleu ? Comment sont-elles construites ?</strong>
             </div>
-            <button class="btn-reveal" onclick="toggleAnswer('ans-b', this)">👁 Afficher la réponse</button>
+            <button type="button" class="btn-reveal" data-answer="ans-b">👁 Afficher la réponse</button>
           </div>
           <div class="q-answer" id="ans-b">
             <strong>Réponse :</strong> Elles expriment l'<strong>admiration</strong> et l'<strong>enthousiasme</strong> (un souhait fort). Elles commencent par un mot exclamatif (<em>Quel</em>, <em>Comme</em>) et se terminent par un <strong>point d'exclamation (!)</strong>.
@@ -894,10 +876,10 @@
               <span class="q-letter">C</span>
               <strong>Relève deux autres phrases avec la même ponctuation dans le 2<sup>e</sup> paragraphe. De quel type de phrase s'agit-il ?</strong>
             </div>
-            <button class="btn-reveal" onclick="toggleAnswer('ans-c', this)">👁 Afficher la réponse</button>
+            <button type="button" class="btn-reveal" data-answer="ans-c">👁 Afficher la réponse</button>
           </div>
           <div class="q-answer" id="ans-c">
-            <strong>Réponse :</strong> « <em>Ne perdons plus une seule seconde !</em> » (phrase <strong>impérative</strong> exprimant un ordre vif) et « <em>Les athlètes ne doivent ni se décourager, ni oublier l'esprit d'équipe !</em> » (phrase <strong>déclarative</strong> exprimant une émotion forte).
+            <strong>Réponse :</strong> « <em>Ne laissons plus les moqueries s'installer dans notre école !</em> » (phrase <strong>impérative</strong> exprimant un ordre vif) et « <em>Les élèves ne doivent ni insulter leurs camarades, ni rejeter quelqu'un de différent !</em> » (phrase <strong>déclarative</strong> exprimant une émotion forte).
           </div>
         </div>
       </div>
@@ -908,15 +890,15 @@
         <ul class="rule-list">
           <li>
             <strong>Une phrase peut être :</strong><br>
-            • <strong>à la forme affirmative</strong> : <em>J'ai assisté aux Jeux Olympiques.</em><br>
-            • <strong>à la forme négative</strong> : le verbe conjugué à un temps simple est alors encadré par les mots négatifs <span class="tag-neg">ne ... pas</span>, <span class="tag-neg">ne ... plus</span>, <span class="tag-neg">ne ... jamais</span>, <span class="tag-neg">ne ... rien</span>. On met <strong>n'</strong> devant une voyelle ou un <em>h</em> muet : <em>Je <span class="tag-neg">n'</span>habite <span class="tag-neg">pas</span> loin du stade.</em><br>
-            Avec une énumération, on utilise <span class="tag-neg">ne ... ni ... ni</span> : <em>Je cours et je saute. ➔ Je <span class="tag-neg">ne</span> cours <span class="tag-neg">ni</span> ne saute.</em>
+            • <strong>à la forme affirmative</strong> : <em>J'ai aidé mon camarade dans la cour.</em><br>
+            • <strong>à la forme négative</strong> : le verbe conjugué à un temps simple est alors encadré par les mots négatifs <span class="tag-neg">ne ... pas</span>, <span class="tag-neg">ne ... plus</span>, <span class="tag-neg">ne ... jamais</span>, <span class="tag-neg">ne ... rien</span>. On met <strong>n'</strong> devant une voyelle ou un <em>h</em> muet : <em>Je <span class="tag-neg">n'</span>accepte <span class="tag-neg">pas</span> les moqueries.</em><br>
+            Avec une énumération, on utilise <span class="tag-neg">ne ... ni ... ni</span> : <em>Je bouscule et j'insulte. ➔ Je <span class="tag-neg">ne</span> bouscule <span class="tag-neg">ni</span> n'insulte.</em>
           </li>
           <li>
             <strong>à la forme exclamative</strong> pour exprimer une émotion (admiration, peur, colère, surprise...) ou un ordre vif :<br>
-            <em>Ce champion est rapide <span class="tag-exc">!</span></em> | <em>Va sur le podium <span class="tag-exc">!</span></em><br>
+            <em>Cette amitié est précieuse <span class="tag-exc">!</span></em> | <em>Préviens un adulte <span class="tag-exc">!</span></em><br>
             La phrase est terminée par un <strong>point d'exclamation (!)</strong> et se construit souvent avec un <strong>mot exclamatif</strong> : <em>que, comme, quel, quelle, quels, quelles</em>.<br>
-            <em><span class="tag-exc">Que</span> la piste est belle <span class="tag-exc">!</span></em> | <em><span class="tag-exc">Comme</span> ce saut est haut <span class="tag-exc">!</span></em>
+            <em><span class="tag-exc">Que</span> la solidarité est belle <span class="tag-exc">!</span></em> | <em><span class="tag-exc">Comme</span> ce soutien est rassurant <span class="tag-exc">!</span></em>
           </li>
           <li>
             <strong>Les formes négative et exclamative peuvent s'ajouter parfois</strong> aux phrases déclaratives et impératives :
@@ -931,13 +913,13 @@
               <tbody>
                 <tr>
                   <td><strong>Forme négative</strong></td>
-                  <td><em>Je <span class="tag-neg">ne</span> cours <span class="tag-neg">pas</span> le marathon.</em></td>
-                  <td><em><span class="tag-neg">Ne</span> cours <span class="tag-neg">pas</span> sur la piste.</em></td>
+                  <td><em>Je <span class="tag-neg">ne</span> reste <span class="tag-neg">pas</span> silencieux.</em></td>
+                  <td><em><span class="tag-neg">Ne</span> reste <span class="tag-neg">pas</span> seul.</em></td>
                 </tr>
                 <tr>
                   <td><strong>Forme négative + exclamative</strong></td>
-                  <td><em>Je <span class="tag-neg">ne</span> cours <span class="tag-neg">pas</span> le marathon <span class="tag-exc">!</span></em></td>
-                  <td><em><span class="tag-neg">Ne</span> cours <span class="tag-neg">pas</span> sur la piste <span class="tag-exc">!</span></em></td>
+                  <td><em>Je <span class="tag-neg">ne</span> reste <span class="tag-neg">pas</span> silencieux <span class="tag-exc">!</span></em></td>
+                  <td><em><span class="tag-neg">Ne</span> reste <span class="tag-neg">pas</span> seul <span class="tag-exc">!</span></em></td>
                 </tr>
               </tbody>
             </table>
@@ -948,13 +930,13 @@
       <div class="exercise-footer">
         <div></div>
         <div class="action-group">
-          <button class="btn btn-nav-step" onclick="switchSection('ex1')">Commencer les exercices (Ex. 1) ➡</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex1">Commencer les exercices (Ex. 1) ➡</button>
         </div>
       </div>
     </article>
 
     <!-- ======================================================================
-         EXERCICE 1 : REPÉRAGE DES MARQUES DE NÉGATION (TOKENS CLIQUABLES)
+         EXERCICE 1 : REPÉRAGE DES MARQUES DE NÉGATION (MOTS CLIQUABLES)
          ====================================================================== -->
     <article class="section-card hidden" id="sec-ex1">
       <div class="section-header">
@@ -968,7 +950,7 @@
       <p class="consigne">Clique uniquement sur les marques de négation dans les phrases négatives. (Ne clique rien dans les phrases affirmatives !)</p>
       <div class="exemple-box">
         <span class="exemple-label">Exemple</span>
-        La nageuse <span class="tag-neg">n'</span>est <span class="tag-neg">pas</span> fatiguée.
+        Cet élève <span class="tag-neg">n'</span>est <span class="tag-neg">pas</span> tout seul.
       </div>
 
       <div class="token-list" id="ex1-container"></div>
@@ -976,18 +958,18 @@
 
       <div class="exercise-footer">
         <div class="action-group">
-          <button class="btn btn-check" onclick="checkTokensEx('ex1')">✔ Vérifier</button>
-          <button class="btn btn-reset" onclick="resetTokensEx('ex1')">↺ Recommencer</button>
+          <button type="button" class="btn btn-check" data-check-tokens="ex1">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-tokens="ex1">↺ Recommencer</button>
         </div>
         <div class="action-group">
-          <button class="btn btn-nav-step" onclick="switchSection('lecon')">⬅ Leçon</button>
-          <button class="btn btn-nav-step" onclick="switchSection('ex2')">Suivant ➡</button>
+          <button type="button" class="btn btn-nav-step" data-go="lecon">⬅ Leçon</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex2">Suivant ➡</button>
         </div>
       </div>
     </article>
 
     <!-- ======================================================================
-         EXERCICE 2 : REPÉRAGE DES MARQUES DE L'EXCLAMATION (TOKENS CLIQUABLES)
+         EXERCICE 2 : REPÉRAGE DES MARQUES DE L'EXCLAMATION (MOTS CLIQUABLES)
          ====================================================================== -->
     <article class="section-card hidden" id="sec-ex2">
       <div class="section-header">
@@ -1001,7 +983,7 @@
       <p class="consigne">Clique sur le mot exclamatif (au début) et sur le point d'exclamation (à la fin) dans chaque phrase.</p>
       <div class="exemple-box">
         <span class="exemple-label">Exemple</span>
-        <span class="tag-exc">Qu'</span>elle est rapide <span class="tag-exc">!</span>
+        <span class="tag-exc">Qu'</span>il est courageux <span class="tag-exc">!</span>
       </div>
 
       <div class="token-list" id="ex2-container"></div>
@@ -1009,18 +991,18 @@
 
       <div class="exercise-footer">
         <div class="action-group">
-          <button class="btn btn-check" onclick="checkTokensEx('ex2')">✔ Vérifier</button>
-          <button class="btn btn-reset" onclick="resetTokensEx('ex2')">↺ Recommencer</button>
+          <button type="button" class="btn btn-check" data-check-tokens="ex2">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-tokens="ex2">↺ Recommencer</button>
         </div>
         <div class="action-group">
-          <button class="btn btn-nav-step" onclick="switchSection('ex1')">⬅ Précédent</button>
-          <button class="btn btn-nav-step" onclick="switchSection('ex3')">Suivant ➡</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex1">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex3">Suivant ➡</button>
         </div>
       </div>
     </article>
 
     <!-- ======================================================================
-         EXERCICE 3 : CLASSEMENT DANS UN TABLEAU (PARTIE 1 : a à e)
+         EXERCICE 3 : CLASSEMENT DANS UN TABLEAU (SÉRIE 1 : a à e)
          ====================================================================== -->
     <article class="section-card hidden" id="sec-ex3">
       <div class="section-header">
@@ -1036,7 +1018,7 @@
       <div class="classify-grid" id="ex3-container"></div>
 
       <div class="summary-table-wrapper">
-        <table class="summary-table" id="table-ex3">
+        <table class="summary-table">
           <thead>
             <tr>
               <th>Type de phrase</th>
@@ -1068,18 +1050,18 @@
 
       <div class="exercise-footer">
         <div class="action-group">
-          <button class="btn btn-check" onclick="checkClassifyEx('ex3')">✔ Vérifier</button>
-          <button class="btn btn-reset" onclick="resetClassifyEx('ex3')">↺ Recommencer</button>
+          <button type="button" class="btn btn-check" data-check-classify="ex3">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-classify="ex3">↺ Recommencer</button>
         </div>
         <div class="action-group">
-          <button class="btn btn-nav-step" onclick="switchSection('ex2')">⬅ Précédent</button>
-          <button class="btn btn-nav-step" onclick="switchSection('ex4')">Suivant ➡</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex2">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex4">Suivant ➡</button>
         </div>
       </div>
     </article>
 
     <!-- ======================================================================
-         EXERCICE 4 : CLASSEMENT DANS UN TABLEAU (PARTIE 2 : f à j)
+         EXERCICE 4 : CLASSEMENT DANS UN TABLEAU (SÉRIE 2 : f à j)
          ====================================================================== -->
     <article class="section-card hidden" id="sec-ex4">
       <div class="section-header">
@@ -1095,4 +1077,892 @@
       <div class="classify-grid" id="ex4-container"></div>
 
       <div class="summary-table-wrapper">
-        <table class
+        <table class="summary-table">
+          <thead>
+            <tr>
+              <th>Type de phrase</th>
+              <th>Forme négative</th>
+              <th>Forme exclamative</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Phrases déclaratives</td>
+              <td id="ex4-decl-neg">—</td>
+              <td id="ex4-decl-exc">—</td>
+            </tr>
+            <tr>
+              <td>Phrases interrogatives</td>
+              <td id="ex4-int-neg">—</td>
+              <td id="ex4-int-exc">—</td>
+            </tr>
+            <tr>
+              <td>Phrases impératives</td>
+              <td id="ex4-imp-neg">—</td>
+              <td id="ex4-imp-exc">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="feedback-banner" id="fb-ex4"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-classify="ex4">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-classify="ex4">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex3">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex5">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ======================================================================
+         EXERCICE 5 : FORME NÉGATIVE AVEC NE... PAS OU NE... PLUS
+         ====================================================================== -->
+    <article class="section-card hidden" id="sec-ex5">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">5</span>
+          <span>Construire des phrases négatives (ne... pas / ne... plus)</span>
+        </div>
+        <span class="badge-domain">Employer les formes</span>
+      </div>
+
+      <p class="consigne">Transforme chaque phrase à la forme négative en utilisant <em>ne ... pas</em> ou <em>ne ... plus</em>.</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        Les moqueries continuent. ➔ Les moqueries <span class="tag-neg">ne</span> continuent <span class="tag-neg">plus</span>. (ou <span class="tag-neg">ne</span> continuent <span class="tag-neg">pas</span>.)
+      </div>
+
+      <div class="transform-list" id="ex5-container"></div>
+      <div class="feedback-banner" id="fb-ex5"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-transform="ex5">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-transform="ex5">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex4">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex6">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ======================================================================
+         EXERCICE 6 : RÉPONDRE AUX QUESTIONS AVEC NE... JAMAIS OU NE... RIEN
+         ====================================================================== -->
+    <article class="section-card hidden" id="sec-ex6">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">6</span>
+          <span>Répondre avec ne... jamais ou ne... rien</span>
+        </div>
+        <span class="badge-domain">Employer les formes</span>
+      </div>
+
+      <p class="consigne">Réponds négativement aux questions en utilisant <em>ne ... jamais</em> ou <em>ne ... rien</em>.</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        Cachez-vous un secret ? ➔ Non, je <span class="tag-neg">ne</span> cache <span class="tag-neg">rien</span>.
+      </div>
+
+      <div class="transform-list" id="ex6-container"></div>
+      <div class="feedback-banner" id="fb-ex6"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-transform="ex6">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-transform="ex6">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex5">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex7">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ======================================================================
+         EXERCICE 7 : CONSTRUIRE AUX FORMES NÉGATIVE ET EXCLAMATIVE
+         ====================================================================== -->
+    <article class="section-card hidden" id="sec-ex7">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">7</span>
+          <span>Associer forme négative et forme exclamative</span>
+        </div>
+        <span class="badge-domain">Employer les formes</span>
+      </div>
+
+      <p class="consigne">Transforme ces phrases aux formes négative (avec <em>ne ... ni ... ni</em>) et exclamative (avec <em>!</em>).</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        Je me moque et je bouscule. ➔ Je <span class="tag-neg">ne</span> me moque <span class="tag-neg">ni</span> ne bouscule <span class="tag-exc">!</span>
+      </div>
+
+      <div class="transform-list" id="ex7-container"></div>
+      <div class="feedback-banner" id="fb-ex7"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-transform="ex7">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-transform="ex7">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex6">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex8">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ======================================================================
+         EXERCICE 8 : CONSTRUIRE AVEC UN MOT EXCLAMATIF
+         ====================================================================== -->
+    <article class="section-card hidden" id="sec-ex8">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">8</span>
+          <span>Construire des phrases avec un mot exclamatif</span>
+        </div>
+        <span class="badge-domain">Employer les formes</span>
+      </div>
+
+      <p class="consigne">Transforme chaque phrase en phrase exclamative en utilisant un mot exclamatif (<em>Que, Qu', Comme, Quel, Quelle</em>) et un point d'exclamation.</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        J'aime aider mes camarades. ➔ <span class="tag-exc">Que</span> j'aime aider mes camarades <span class="tag-exc">!</span> (ou <span class="tag-exc">Comme</span> j'aime aider mes camarades <span class="tag-exc">!</span>)
+      </div>
+
+      <div class="transform-list" id="ex8-container"></div>
+      <div class="feedback-banner" id="fb-ex8"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-transform="ex8">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-transform="ex8">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex7">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex9">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ======================================================================
+         EXERCICE 9 : CHARTE CONTRE LE HARCÈLEMENT SCOLAIRE (PRODUCTION GUIDÉE)
+         ====================================================================== -->
+    <article class="section-card hidden" id="sec-ex9">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">9</span>
+          <span>À l'écrit : Notre charte contre le harcèlement</span>
+        </div>
+        <span class="badge-domain">Production écrite</span>
+      </div>
+
+      <p class="consigne">Complète cette charte de classe en transformant chaque consigne en phrase négative et exclamative (comme dans l'exemple).</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        Il faut arrêter les insultes. ➔ <span class="tag-neg">N'</span>insultons <span class="tag-neg">plus</span> nos camarades <span class="tag-exc">!</span>
+      </div>
+
+      <div class="transform-list" id="ex9-container"></div>
+      <div class="feedback-banner" id="fb-ex9"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-transform="ex9">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-transform="ex9">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex8">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="all">📋 Tout afficher</button>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- ========================================================================
+       SCRIPT JAVASCRIPT : DONNÉES & LOGIQUE INTERACTIVE COMPLÈTE
+       ======================================================================== -->
+  <script>
+    /* ------------------------------------------------------------------------
+       1. DONNÉES PÉDAGOGIQUES (THÈME EXCLUSIF : HARCÈLEMENT SCOLAIRE - CM1)
+       ------------------------------------------------------------------------ */
+    const EXERCISES_DATA = {
+      // Exercice 1 : Mots cliquables (Repérer les marques de négation uniquement dans les phrases négatives)
+      ex1: [
+        {
+          letter: "a.",
+          tokens: ["Tous", "les", "élèves", "jouent", "ensemble", "dans", "la", "cour."],
+          correctIndices: [] // Phrase affirmative
+        },
+        {
+          letter: "b.",
+          tokens: ["Camille", "n'", "est", "pas", "seule", "pendant", "la", "récréation."],
+          correctIndices: [1, 3] // n' ... pas
+        },
+        {
+          letter: "c.",
+          tokens: ["Les", "moqueries", "ne", "sont", "plus", "tolérées", "à", "l'école."],
+          correctIndices: [2, 4] // ne ... plus
+        },
+        {
+          letter: "d.",
+          tokens: ["Les", "adultes", "écoutent", "toujours", "les", "enfants", "en", "difficulté."],
+          correctIndices: [] // Phrase affirmative
+        },
+        {
+          letter: "e.",
+          tokens: ["Nous", "n'", "accepterons", "jamais", "qu'on", "embête", "un", "camarade."],
+          correctIndices: [1, 3] // n' ... jamais
+        }
+      ],
+
+      // Exercice 2 : Mots cliquables (Indiquer le mot exclamatif et le point d'exclamation)
+      ex2: [
+        {
+          letter: "a.",
+          tokens: ["Quelle", "belle", "preuve", "de", "camaraderie", "dans", "cette", "classe", "!"],
+          correctIndices: [0, 8]
+        },
+        {
+          letter: "b.",
+          tokens: ["Comme", "on", "a", "envie", "de", "consoler", "un", "ami", "triste", "!"],
+          correctIndices: [0, 9]
+        },
+        {
+          letter: "c.",
+          tokens: ["Quelle", "joie", "de", "voir", "tous", "les", "élèves", "réconciliés", "!"],
+          correctIndices: [0, 8]
+        },
+        {
+          letter: "d.",
+          tokens: ["Que", "ces", "élèves", "sont", "bienveillants", "!"],
+          correctIndices: [0, 5]
+        },
+        {
+          letter: "e.",
+          tokens: ["Comme", "ce", "message", "contre", "le", "harcèlement", "est", "important", "!"],
+          correctIndices: [0, 8]
+        }
+      ],
+
+      // Exercice 3 : Classement Série 1 (a à e)
+      ex3: [
+        { letter: "a", text: "La victime ne reste pas sans défense.", type: "decl", form: "neg" },
+        { letter: "b", text: "On la soutient de tout notre cœur !", type: "decl", form: "exc" },
+        { letter: "c", text: "Cette entraide est formidable !", type: "decl", form: "exc" },
+        { letter: "d", text: "Protégeons les plus fragiles !", type: "imp", form: "exc" },
+        { letter: "e", text: "Mais le silence des témoins n'est-il pas un problème ?", type: "int", form: "neg" }
+      ],
+
+      // Exercice 4 : Classement Série 2 (f à j)
+      ex4: [
+        { letter: "f", text: "Le harcèlement n'est pas un jeu.", type: "decl", form: "neg" },
+        { letter: "g", text: "Ce camarade a un grand courage !", type: "decl", form: "exc" },
+        { letter: "h", text: "Prévenons tout de suite la maîtresse !", type: "imp", form: "exc" },
+        { letter: "i", text: "Ne jugeons pas les différences.", type: "imp", form: "neg" },
+        { letter: "j", text: "Ne faudrait-il pas inviter Paul à jouer ?", type: "int", form: "neg" }
+      ],
+
+      // Exercice 5 : Forme négative avec ne... pas ou ne... plus
+      ex5: [
+        {
+          letter: "a.",
+          prompt: "Dans cette classe, l'ambiance est tendue.",
+          accepted: [
+            "Dans cette classe, l'ambiance n'est pas tendue.",
+            "Dans cette classe, l'ambiance n'est plus tendue.",
+            "Dans cette classe l'ambiance n'est pas tendue.",
+            "Dans cette classe l'ambiance n'est plus tendue."
+          ],
+          sample: "Dans cette classe, l'ambiance n'est pas (ou n'est plus) tendue."
+        },
+        {
+          letter: "b.",
+          prompt: "Cet élève est isolé dans la cour.",
+          accepted: [
+            "Cet élève n'est pas isolé dans la cour.",
+            "Cet élève n'est plus isolé dans la cour."
+          ],
+          sample: "Cet élève n'est pas (ou n'est plus) isolé dans la cour."
+        },
+        {
+          letter: "c.",
+          prompt: "Les brimades sont nombreuses.",
+          accepted: [
+            "Les brimades ne sont pas nombreuses.",
+            "Les brimades ne sont plus nombreuses."
+          ],
+          sample: "Les brimades ne sont pas (ou ne sont plus) nombreuses."
+        },
+        {
+          letter: "d.",
+          prompt: "Chaque jour, ce groupe se moque de lui.",
+          accepted: [
+            "Chaque jour, ce groupe ne se moque pas de lui.",
+            "Chaque jour, ce groupe ne se moque plus de lui.",
+            "Chaque jour ce groupe ne se moque pas de lui.",
+            "Chaque jour ce groupe ne se moque plus de lui."
+          ],
+          sample: "Chaque jour, ce groupe ne se moque pas (ou ne se moque plus) de lui."
+        }
+      ],
+
+      // Exercice 6 : Répondre avec ne... jamais ou ne... rien
+      ex6: [
+        {
+          letter: "a.",
+          prompt: "Te moques-tu de tes camarades ?",
+          accepted: [
+            "Non, je ne me moque jamais de mes camarades.",
+            "Non, je ne me moque jamais d'eux."
+          ],
+          sample: "Non, je ne me moque jamais de mes camarades."
+        },
+        {
+          letter: "b.",
+          prompt: "Caches-tu un problème à tes parents ?",
+          accepted: [
+            "Non, je ne cache rien à mes parents.",
+            "Non, je ne cache rien."
+          ],
+          sample: "Non, je ne cache rien (à mes parents)."
+        },
+        {
+          letter: "c.",
+          prompt: "Laisses-tu un élève pleurer tout seul ?",
+          accepted: [
+            "Non, je ne laisse jamais un élève pleurer tout seul."
+          ],
+          sample: "Non, je ne laisse jamais un élève pleurer tout seul."
+        },
+        {
+          letter: "d.",
+          prompt: "Crains-tu de demander de l'aide à un adulte ?",
+          accepted: [
+            "Non, je ne crains rien.",
+            "Non, je ne crains jamais de demander de l'aide à un adulte.",
+            "Non, je ne crains jamais de demander de l'aide."
+          ],
+          sample: "Non, je ne crains jamais de demander de l'aide à un adulte."
+        }
+      ],
+
+      // Exercice 7 : Formes négative (ne... ni... ni) ET exclamative (!)
+      ex7: [
+        {
+          letter: "a.",
+          prompt: "Je veux insulter et bousculer.",
+          requireExclamation: true,
+          accepted: [
+            "Je ne veux ni insulter ni bousculer !"
+          ],
+          sample: "Je ne veux ni insulter ni bousculer !"
+        },
+        {
+          letter: "b.",
+          prompt: "J'accepte les moqueries et les surnoms méchants.",
+          requireExclamation: true,
+          accepted: [
+            "Je n'accepte ni les moqueries ni les surnoms méchants !"
+          ],
+          sample: "Je n'accepte ni les moqueries ni les surnoms méchants !"
+        },
+        {
+          letter: "c.",
+          prompt: "J'approuve le rejet et la violence.",
+          requireExclamation: true,
+          accepted: [
+            "Je n'approuve ni le rejet ni la violence !"
+          ],
+          sample: "Je n'approuve ni le rejet ni la violence !"
+        },
+        {
+          letter: "d.",
+          prompt: "Garde le silence et ta peur.",
+          requireExclamation: true,
+          accepted: [
+            "Ne garde ni le silence ni ta peur !"
+          ],
+          sample: "Ne garde ni le silence ni ta peur !"
+        }
+      ],
+
+      // Exercice 8 : Construire avec un mot exclamatif
+      ex8: [
+        {
+          letter: "a.",
+          prompt: "Les élèves respectent leurs camarades.",
+          requireExclamation: true,
+          accepted: [
+            "Que les élèves respectent leurs camarades !",
+            "Comme les élèves respectent leurs camarades !"
+          ],
+          sample: "Que (ou Comme) les élèves respectent leurs camarades !"
+        },
+        {
+          letter: "b.",
+          prompt: "Les médiateurs de la cour sont attentifs.",
+          requireExclamation: true,
+          accepted: [
+            "Que les médiateurs de la cour sont attentifs !",
+            "Comme les médiateurs de la cour sont attentifs !"
+          ],
+          sample: "Que (ou Comme) les médiateurs de la cour sont attentifs !"
+        },
+        {
+          letter: "c.",
+          prompt: "Ces enfants font preuve d'une étonnante gentillesse.",
+          requireExclamation: true,
+          accepted: [
+            "Quelle étonnante gentillesse chez ces enfants !",
+            "Comme ces enfants font preuve d'une étonnante gentillesse !",
+            "Que ces enfants font preuve d'une étonnante gentillesse !"
+          ],
+          sample: "Comme (ou Que) ces enfants font preuve d'une étonnante gentillesse !"
+        },
+        {
+          letter: "d.",
+          prompt: "Ce geste de soutien est magnifique.",
+          requireExclamation: true,
+          accepted: [
+            "Que ce geste de soutien est magnifique !",
+            "Comme ce geste de soutien est magnifique !",
+            "Quel magnifique geste de soutien !"
+          ],
+          sample: "Quel magnifique geste de soutien ! (ou Comme ce geste de soutien est magnifique !)"
+        }
+      ],
+
+      // Exercice 9 : Charte contre le harcèlement scolaire (phrases négatives + exclamatives)
+      ex9: [
+        {
+          letter: "Règle 1.",
+          prompt: "Transforme : « Nous ne devons pas rejeter un élève nouveau. » (à l'impératif avec nous)",
+          requireExclamation: true,
+          accepted: [
+            "Ne rejetons pas un élève nouveau !",
+            "Ne rejetons jamais un élève nouveau !",
+            "Ne rejetons plus un élève nouveau !"
+          ],
+          sample: "Ne rejetons pas (ou jamais) un élève nouveau !"
+        },
+        {
+          letter: "Règle 2.",
+          prompt: "Transforme : « Il ne faut jamais garder un secret qui fait souffrir. » (à l'impératif avec nous)",
+          requireExclamation: true,
+          accepted: [
+            "Ne gardons jamais un secret qui fait souffrir !",
+            "Ne gardons pas un secret qui fait souffrir !"
+          ],
+          sample: "Ne gardons jamais un secret qui fait souffrir !"
+        },
+        {
+          letter: "Règle 3.",
+          prompt: "Transforme : « La bienveillance est importante à l'école. » (avec le mot exclamatif Que ou Comme)",
+          requireExclamation: true,
+          accepted: [
+            "Que la bienveillance est importante à l'école !",
+            "Comme la bienveillance est importante à l'école !"
+          ],
+          sample: "Que (ou Comme) la bienveillance est importante à l'école !"
+        }
+      ]
+    };
+
+    const TOTAL_EXERCISES = 9;
+    const validatedState = {
+      ex1: false, ex2: false, ex3: false, ex4: false,
+      ex5: false, ex6: false, ex7: false, ex8: false, ex9: false
+    };
+
+    /* ------------------------------------------------------------------------
+       2. INITIALISATION COMPLÈTE DES ÉCOUTEURS D'ÉVÉNEMENTS
+       ------------------------------------------------------------------------ */
+    document.addEventListener("DOMContentLoaded", () => {
+      // Rendu des exercices
+      renderTokensEx("ex1");
+      renderTokensEx("ex2");
+      renderClassifyEx("ex3");
+      renderClassifyEx("ex4");
+      renderTransformEx("ex5");
+      renderTransformEx("ex6");
+      renderTransformEx("ex7");
+      renderTransformEx("ex8");
+      renderTransformEx("ex9");
+
+      // Navigation sticky
+      document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          switchSection(btn.dataset.target);
+        });
+      });
+
+      // Boutons Précédent / Suivant / Tout afficher dans les pieds de carte
+      document.querySelectorAll("[data-go]").forEach(btn => {
+        btn.addEventListener("click", () => {
+          switchSection(btn.dataset.go);
+        });
+      });
+
+      // Boutons Afficher / Masquer les réponses de la phase de découverte
+      document.querySelectorAll(".btn-reveal").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const targetId = btn.dataset.answer;
+          const ansEl = document.getElementById(targetId);
+          const isVisible = ansEl.classList.toggle("visible");
+          btn.textContent = isVisible ? "🙈 Masquer la réponse" : "👁 Afficher la réponse";
+        });
+      });
+
+      // Boutons Vérifier / Recommencer pour les exercices à mots cliquables (Ex 1 & 2)
+      document.querySelectorAll("[data-check-tokens]").forEach(btn => {
+        btn.addEventListener("click", () => checkTokensEx(btn.dataset.checkTokens));
+      });
+      document.querySelectorAll("[data-reset-tokens]").forEach(btn => {
+        btn.addEventListener("click", () => resetTokensEx(btn.dataset.resetTokens));
+      });
+
+      // Boutons Vérifier / Recommencer pour les exercices de classement (Ex 3 & 4)
+      document.querySelectorAll("[data-check-classify]").forEach(btn => {
+        btn.addEventListener("click", () => checkClassifyEx(btn.dataset.checkClassify));
+      });
+      document.querySelectorAll("[data-reset-classify]").forEach(btn => {
+        btn.addEventListener("click", () => resetClassifyEx(btn.dataset.resetClassify));
+      });
+
+      // Boutons Vérifier / Recommencer pour les exercices de transformation (Ex 5 à 9)
+      document.querySelectorAll("[data-check-transform]").forEach(btn => {
+        btn.addEventListener("click", () => checkTransformEx(btn.dataset.checkTransform));
+      });
+      document.querySelectorAll("[data-reset-transform]").forEach(btn => {
+        btn.addEventListener("click", () => resetTransformEx(btn.dataset.resetTransform));
+      });
+    });
+
+    /* ------------------------------------------------------------------------
+       3. GESTION DE LA NAVIGATION ET DU SCORE GLOBAL
+       ------------------------------------------------------------------------ */
+    function switchSection(target) {
+      document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.target === target);
+      });
+
+      const allCards = document.querySelectorAll(".section-card");
+      if (target === "all") {
+        allCards.forEach(card => card.classList.remove("hidden"));
+      } else {
+        allCards.forEach(card => {
+          card.classList.toggle("hidden", card.id !== `sec-${target}`);
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+
+    function markExerciseValidated(exId, isValid) {
+      validatedState[exId] = isValid;
+      const navBtn = document.getElementById(`nav-${exId}`);
+      if (navBtn) {
+        navBtn.classList.toggle("completed", isValid);
+      }
+      const totalValid = Object.values(validatedState).filter(Boolean).length;
+      document.getElementById("globalScore").textContent = `⭐ Exercices validés : ${totalValid} / ${TOTAL_EXERCISES}`;
+    }
+
+    /* ------------------------------------------------------------------------
+       4. LOGIQUE EXERCICES DE REPÉRAGE (MOTS CLIQUABLES - EX 1 & EX 2)
+       ------------------------------------------------------------------------ */
+    function renderTokensEx(exId) {
+      const container = document.getElementById(`${exId}-container`);
+      container.innerHTML = "";
+
+      EXERCISES_DATA[exId].forEach((row, rowIdx) => {
+        const rowDiv = document.createElement("div");
+        rowDiv.className = "token-row";
+        rowDiv.dataset.row = rowIdx;
+
+        const letterSpan = document.createElement("span");
+        letterSpan.className = "row-letter";
+        letterSpan.textContent = row.letter;
+        rowDiv.appendChild(letterSpan);
+
+        row.tokens.forEach((word, tokIdx) => {
+          const tokSpan = document.createElement("span");
+          tokSpan.className = "token";
+          tokSpan.textContent = word;
+          tokSpan.dataset.index = tokIdx;
+
+          tokSpan.addEventListener("click", () => {
+            tokSpan.classList.remove("correct-token", "wrong-token");
+            tokSpan.classList.toggle("selected");
+          });
+
+          rowDiv.appendChild(tokSpan);
+        });
+
+        container.appendChild(rowDiv);
+      });
+    }
+
+    function checkTokensEx(exId) {
+      const container = document.getElementById(`${exId}-container`);
+      const rows = container.querySelectorAll(".token-row");
+      let totalCorrectTokens = 0;
+      let foundCorrectTokens = 0;
+      let wrongSelections = 0;
+
+      EXERCISES_DATA[exId].forEach((rowData, rowIdx) => {
+        const rowEl = rows[rowIdx];
+        const tokens = rowEl.querySelectorAll(".token");
+        totalCorrectTokens += rowData.correctIndices.length;
+
+        tokens.forEach((tokEl, tokIdx) => {
+          tokEl.classList.remove("correct-token", "wrong-token");
+          const isSelected = tokEl.classList.contains("selected");
+          const shouldBeSelected = rowData.correctIndices.includes(tokIdx);
+
+          if (isSelected && shouldBeSelected) {
+            tokEl.classList.add("correct-token");
+            foundCorrectTokens++;
+          } else if (isSelected && !shouldBeSelected) {
+            tokEl.classList.add("wrong-token");
+            wrongSelections++;
+          }
+        });
+      });
+
+      const fb = document.getElementById(`fb-${exId}`);
+      if (foundCorrectTokens === totalCorrectTokens && wrongSelections === 0) {
+        fb.className = "feedback-banner success";
+        fb.innerHTML = `🎉 Bravo ! Tu as repéré toutes les marques sans aucune erreur (${foundCorrectTokens}/${totalCorrectTokens}).`;
+        markExerciseValidated(exId, true);
+      } else {
+        fb.className = "feedback-banner error";
+        const hint = exId === "ex1"
+          ? "Indice : Vérifie que la phrase est bien négative et n'oublie aucun des deux mots de la négation (ne/n' + pas/plus/jamais)."
+          : "Indice : Clique à la fois sur le mot exclamatif au début de la phrase (Quel, Quelle, Comme, Que) ET sur le point d'exclamation ( ! ) à la fin.";
+        fb.innerHTML = `❌ Pas encore tout à fait : ${foundCorrectTokens}/${totalCorrectTokens} élément(s) juste(s), ${wrongSelections} erreur(s).<br><small>${hint}</small>`;
+        markExerciseValidated(exId, false);
+      }
+    }
+
+    function resetTokensEx(exId) {
+      renderTokensEx(exId);
+      const fb = document.getElementById(`fb-${exId}`);
+      fb.className = "feedback-banner";
+      fb.textContent = "";
+      markExerciseValidated(exId, false);
+    }
+
+    /* ------------------------------------------------------------------------
+       5. LOGIQUE EXERCICES DE CLASSEMENT & TABLEAU DYNAMIQUE (EX 3 & EX 4)
+       ------------------------------------------------------------------------ */
+    function renderClassifyEx(exId) {
+      const container = document.getElementById(`${exId}-container`);
+      container.innerHTML = "";
+
+      EXERCISES_DATA[exId].forEach((item, idx) => {
+        const row = document.createElement("div");
+        row.className = "classify-item";
+        row.id = `${exId}-item-${idx}`;
+
+        const sentenceDiv = document.createElement("div");
+        sentenceDiv.className = "classify-sentence";
+        sentenceDiv.innerHTML = `<strong style="color: var(--accent-amber);">${item.letter}.</strong> ${item.text}`;
+
+        const controlsDiv = document.createElement("div");
+        controlsDiv.className = "classify-controls";
+
+        const selectType = document.createElement("select");
+        selectType.className = "form-select";
+        selectType.dataset.ex = exId;
+        selectType.dataset.idx = idx;
+        selectType.dataset.role = "type";
+        selectType.innerHTML = `
+          <option value="">-- Type de phrase --</option>
+          <option value="decl">Déclarative</option>
+          <option value="int">Interrogative</option>
+          <option value="imp">Impérative</option>
+        `;
+        selectType.addEventListener("change", () => updateSummaryTable(exId));
+
+        const selectForm = document.createElement("select");
+        selectForm.className = "form-select";
+        selectForm.dataset.ex = exId;
+        selectForm.dataset.idx = idx;
+        selectForm.dataset.role = "form";
+        selectForm.innerHTML = `
+          <option value="">-- Forme --</option>
+          <option value="neg">Forme négative</option>
+          <option value="exc">Forme exclamative</option>
+        `;
+        selectForm.addEventListener("change", () => updateSummaryTable(exId));
+
+        controlsDiv.appendChild(selectType);
+        controlsDiv.appendChild(selectForm);
+        row.appendChild(sentenceDiv);
+        row.appendChild(controlsDiv);
+        container.appendChild(row);
+      });
+
+      updateSummaryTable(exId);
+    }
+
+    function updateSummaryTable(exId) {
+      const buckets = {
+        "decl-neg": [], "decl-exc": [],
+        "int-neg": [],  "int-exc": [],
+        "imp-neg": [],  "imp-exc": []
+      };
+
+      EXERCISES_DATA[exId].forEach((item, idx) => {
+        const typeVal = document.querySelector(`select[data-ex="${exId}"][data-idx="${idx}"][data-role="type"]`).value;
+        const formVal = document.querySelector(`select[data-ex="${exId}"][data-idx="${idx}"][data-role="form"]`).value;
+        if (typeVal && formVal) {
+          buckets[`${typeVal}-${formVal}`].push(item.letter);
+        }
+      });
+
+      Object.entries(buckets).forEach(([key, letters]) => {
+        const cell = document.getElementById(`${exId}-${key}`);
+        if (letters.length === 0) {
+          cell.textContent = "—";
+        } else {
+          cell.innerHTML = letters.map(l => `<span class="letter-pill">${l}</span>`).join(" ");
+        }
+      });
+    }
+
+    function checkClassifyEx(exId) {
+      let correctCount = 0;
+      const items = EXERCISES_DATA[exId];
+
+      items.forEach((item, idx) => {
+        const rowEl = document.getElementById(`${exId}-item-${idx}`);
+        const typeVal = document.querySelector(`select[data-ex="${exId}"][data-idx="${idx}"][data-role="type"]`).value;
+        const formVal = document.querySelector(`select[data-ex="${exId}"][data-idx="${idx}"][data-role="form"]`).value;
+
+        if (typeVal === item.type && formVal === item.form) {
+          correctCount++;
+          rowEl.style.borderColor = "var(--accent-green)";
+        } else {
+          rowEl.style.borderColor = "var(--accent-red)";
+        }
+      });
+
+      const fb = document.getElementById(`fb-${exId}`);
+      if (correctCount === items.length) {
+        fb.className = "feedback-banner success";
+        fb.innerHTML = `🎉 Excellent travail ! Toutes les phrases (${correctCount}/${items.length}) sont parfaitement classées dans le tableau.`;
+        markExerciseValidated(exId, true);
+      } else {
+        fb.className = "feedback-banner error";
+        fb.innerHTML = `❌ Tu as bien classé ${correctCount} phrase(s) sur ${items.length}.<br><small>Indice : Repère le point final (? = interrogative, ! = exclamative) et le verbe à l'impératif (sans sujet exprimé = impérative).</small>`;
+        markExerciseValidated(exId, false);
+      }
+    }
+
+    function resetClassifyEx(exId) {
+      renderClassifyEx(exId);
+      const fb = document.getElementById(`fb-${exId}`);
+      fb.className = "feedback-banner";
+      fb.textContent = "";
+      markExerciseValidated(exId, false);
+    }
+
+    /* ------------------------------------------------------------------------
+       6. LOGIQUE EXERCICES DE TRANSFORMATION DE PHRASES (CHAMPS TEXTE - EX 5 À 9)
+       ------------------------------------------------------------------------ */
+    function renderTransformEx(exId) {
+      const container = document.getElementById(`${exId}-container`);
+      container.innerHTML = "";
+
+      EXERCISES_DATA[exId].forEach((item, idx) => {
+        const div = document.createElement("div");
+        div.className = "transform-item";
+
+        div.innerHTML = `
+          <div class="transform-prompt">
+            <strong style="color: var(--accent-amber);">${item.letter}</strong> ${item.prompt}
+          </div>
+          <input type="text" class="transform-input" id="${exId}-input-${idx}" placeholder="Écris la phrase transformée ici..." autocomplete="off">
+          <div class="item-correction" id="${exId}-corr-${idx}">
+            💡 Correction possible : <strong>${item.sample}</strong>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    /* Normalisation souple : ignore la casse, les espaces multiples, unifie les apostrophes et tolère la ponctuation */
+    function normalizeText(str, keepExclamation = false) {
+      let s = str
+        .toLowerCase()
+        .replace(/[’']/g, "'")
+        .replace(/\s+/g, " ")
+        .replace(/\s+([,.;!?])/g, "$1")
+        .trim();
+
+      if (keepExclamation) {
+        s = s.replace(/\.+$/g, "").trim();
+      } else {
+        s = s.replace(/[.!?]+$/g, "").trim();
+      }
+      return s;
+    }
+
+    function checkTransformEx(exId) {
+      let correctCount = 0;
+      const items = EXERCISES_DATA[exId];
+
+      items.forEach((item, idx) => {
+        const inputEl = document.getElementById(`${exId}-input-${idx}`);
+        const corrEl = document.getElementById(`${exId}-corr-${idx}`);
+        const userNorm = normalizeText(inputEl.value, Boolean(item.requireExclamation));
+
+        const isMatch = item.accepted.some(ans => {
+          return normalizeText(ans, Boolean(item.requireExclamation)) === userNorm;
+        });
+
+        inputEl.classList.remove("is-correct", "is-wrong");
+        if (isMatch) {
+          correctCount++;
+          inputEl.classList.add("is-correct");
+          corrEl.classList.remove("visible");
+        } else {
+          inputEl.classList.add("is-wrong");
+          corrEl.classList.add("visible");
+        }
+      });
+
+      const fb = document.getElementById(`fb-${exId}`);
+      if (correctCount === items.length) {
+        fb.className = "feedback-banner success";
+        fb.innerHTML = `🎉 Parfait ! Toutes tes transformations (${correctCount}/${items.length}) sont correctes !`;
+        markExerciseValidated(exId, true);
+      } else {
+        fb.className = "feedback-banner error";
+        const extraHint = (exId === "ex7" || exId === "ex8" || exId === "ex9")
+          ? "N'oublie pas le point d'exclamation ( ! ) à la fin de chaque phrase !"
+          : "Vérifie bien les mots de négation (ne/n', pas, plus, jamais, rien) et l'orthographe du verbe.";
+        fb.innerHTML = `❌ ${correctCount} réponse(s) juste(s) sur ${items.length}. Regarde les corrections affichées sous tes phrases.<br><small>${extraHint}</small>`;
+        markExerciseValidated(exId, false);
+      }
+    }
+
+    function resetTransformEx(exId) {
+      renderTransformEx(exId);
+      const fb = document.getElementById(`fb-${exId}`);
+      fb.className = "feedback-banner";
+      fb.textContent = "";
+      markExerciseValidated(exId, false);
+    }
+  </script>
+</body>
+</html>
