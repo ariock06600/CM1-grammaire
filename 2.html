@@ -1,1 +1,1098 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammaire CM1 - Les formes négative et exclamative (Les Jeux Olympiques)</title>
+  <style>
+    /* ==========================================================================
+       VARIABLES & THÈME SOMBRE MODERNE
+       ========================================================================== */
+    :root {
+      --bg-main: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-alt: #263349;
+      --bg-input: #0f172a;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
 
+      /* Couleurs d'accentuation */
+      --accent-blue: #3b82f6;
+      --accent-blue-hover: #2563eb;
+      --accent-green: #10b981;
+      --accent-green-bg: rgba(16, 185, 129, 0.15);
+      --accent-red: #ef4444;
+      --accent-red-bg: rgba(239, 68, 68, 0.15);
+      --accent-amber: #f59e0b;
+      --accent-amber-bg: rgba(245, 158, 11, 0.15);
+      --accent-purple: #8b5cf6;
+      --accent-purple-bg: rgba(139, 92, 246, 0.15);
+
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+
+    /* ==========================================================================
+       BARRE SUPÉRIEURE & BANNIÈRE
+       ========================================================================== */
+    .top-bar {
+      background-color: #090d16;
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn-sommaire {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-sommaire:hover {
+      background-color: var(--accent-blue);
+      border-color: var(--accent-blue);
+      transform: translateX(-2px);
+    }
+
+    .score-badge {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(139, 92, 246, 0.2));
+      border: 1px solid var(--accent-amber);
+      color: #fde68a;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 50%, #0f172a 100%);
+      border-bottom: 2px solid var(--accent-blue);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background-color: var(--accent-amber);
+      color: #0f172a;
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-banner h1 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-objective {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #cbd5e1;
+      font-size: 1rem;
+    }
+
+    /* ==========================================================================
+       BARRE DE NAVIGATION STICKY
+       ========================================================================== */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-btn {
+      background-color: var(--bg-card);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      padding: 0.45rem 0.9rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .nav-btn:hover {
+      color: var(--text-main);
+      border-color: var(--accent-blue);
+    }
+
+    .nav-btn.active {
+      background-color: var(--accent-blue);
+      color: #ffffff;
+      border-color: var(--accent-blue);
+    }
+
+    .nav-btn.completed {
+      border-color: var(--accent-green);
+      color: #6ee7b7;
+    }
+
+    .nav-btn.completed.active {
+      background-color: var(--accent-green);
+      color: #064e3b;
+    }
+
+    .nav-btn.completed::after {
+      content: " ✓";
+      font-weight: bold;
+    }
+
+    /* ==========================================================================
+       CONTENEUR PRINCIPAL & CARTES
+       ========================================================================== */
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .section-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .section-card.hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+
+    .badge-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: var(--accent-purple);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .badge-domain {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background-color: var(--accent-purple-bg);
+      color: #c4b5fd;
+      border: 1px solid rgba(139, 92, 246, 0.3);
+    }
+
+    /* ==========================================================================
+       PHASE DE RECHERCHE & LEÇON ("J'AI COMPRIS")
+       ========================================================================== */
+    .reading-box {
+      background-color: var(--bg-main);
+      border-left: 4px solid var(--accent-amber);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-bottom: 1.5rem;
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .reading-box p + p {
+      margin-top: 0.85rem;
+    }
+
+    .text-blue-highlight {
+      color: #38bdf8;
+      font-weight: 700;
+    }
+
+    .research-questions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .q-item {
+      background-color: var(--bg-card-alt);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .q-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background-color: var(--accent-red);
+      color: white;
+      font-weight: bold;
+      font-size: 0.85rem;
+      margin-right: 0.5rem;
+    }
+
+    .btn-reveal {
+      background-color: rgba(59, 130, 246, 0.2);
+      color: #93c5fd;
+      border: 1px solid var(--accent-blue);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-reveal:hover {
+      background-color: var(--accent-blue);
+      color: white;
+    }
+
+    .q-answer {
+      margin-top: 0.85rem;
+      padding-top: 0.85rem;
+      border-top: 1px dashed var(--border-color);
+      color: #6ee7b7;
+      display: none;
+    }
+
+    .q-answer.visible {
+      display: block;
+    }
+
+    /* Règle "J'ai compris" */
+    .rule-box {
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(30, 41, 59, 0.6) 100%);
+      border: 2px solid var(--accent-green);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .rule-title {
+      display: inline-block;
+      background-color: var(--accent-green);
+      color: #064e3b;
+      font-weight: 800;
+      padding: 0.3rem 1rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .rule-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .rule-list li {
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .rule-list li::before {
+      content: "▶";
+      position: absolute;
+      left: 0;
+      color: var(--accent-green);
+      font-size: 0.8rem;
+      top: 0.25rem;
+    }
+
+    .tag-neg {
+      background-color: var(--accent-red-bg);
+      color: #fca5a5;
+      border: 1px solid var(--accent-red);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .tag-exc {
+      background-color: var(--accent-amber-bg);
+      color: #fde68a;
+      border: 1px solid var(--accent-amber);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .rule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      background-color: var(--bg-main);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .rule-table th, .rule-table td {
+      border: 1px solid var(--border-color);
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    .rule-table th {
+      background-color: var(--bg-card-alt);
+      color: #93c5fd;
+    }
+
+    /* ==========================================================================
+       CONSIGNES & EXEMPLES D'EXERCICES
+       ========================================================================== */
+    .consigne {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #f1f5f9;
+    }
+
+    .exemple-box {
+      background-color: rgba(59, 130, 246, 0.1);
+      border: 1px dashed var(--accent-blue);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    .exemple-label {
+      font-weight: 800;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      margin-right: 0.5rem;
+    }
+
+    /* ==========================================================================
+       INTERACTIVITÉ 1 : MOTS CLIQUABLES (TOKENS - EX 1 & EX 2)
+       ========================================================================== */
+    .token-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .token-row {
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      transition: border-color 0.2s;
+    }
+
+    .row-letter {
+      font-weight: 800;
+      color: var(--accent-amber);
+      margin-right: 0.5rem;
+      min-width: 24px;
+    }
+
+    .token {
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+
+    .token:hover {
+      border-color: var(--accent-blue);
+      background-color: var(--bg-card-alt);
+    }
+
+    .token.selected {
+      background-color: var(--accent-amber);
+      color: #0f172a;
+      border-color: var(--accent-amber);
+      font-weight: 700;
+      transform: translateY(-1px);
+    }
+
+    .token.correct-token {
+      background-color: var(--accent-green) !important;
+      color: #064e3b !important;
+      border-color: var(--accent-green) !important;
+      font-weight: 700;
+    }
+
+    .token.wrong-token {
+      background-color: var(--accent-red) !important;
+      color: #ffffff !important;
+      border-color: var(--accent-red) !important;
+      text-decoration: line-through;
+    }
+
+    /* ==========================================================================
+       INTERACTIVITÉ 2 : CLASSEMENT & TABLEAU DYNAMIQUE (EX 3 & EX 4)
+       ========================================================================== */
+    .classify-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .classify-item {
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .classify-sentence {
+      flex: 1 1 320px;
+      font-size: 1rem;
+    }
+
+    .classify-controls {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    select.form-select {
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 0.45rem 0.75rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    select.form-select:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+    }
+
+    .summary-table-wrapper {
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--bg-main);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .summary-table th, .summary-table td {
+      border: 1px solid var(--border-color);
+      padding: 0.75rem 1rem;
+      text-align: center;
+    }
+
+    .summary-table th:first-child, .summary-table td:first-child {
+      text-align: left;
+      font-weight: 700;
+      color: #93c5fd;
+    }
+
+    .summary-table th {
+      background-color: var(--bg-card-alt);
+      color: var(--accent-amber);
+    }
+
+    .letter-pill {
+      display: inline-block;
+      background-color: var(--accent-purple);
+      color: white;
+      font-weight: 700;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      margin: 0.15rem;
+      font-size: 0.85rem;
+    }
+
+    /* ==========================================================================
+       INTERACTIVITÉ 3 : TRANSFORMATION DE PHRASES (INPUTS - EX 5 À 8)
+       ========================================================================== */
+    .transform-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .transform-item {
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .transform-prompt {
+      font-size: 1rem;
+      color: #e2e8f0;
+    }
+
+    .transform-input {
+      width: 100%;
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 0.9rem;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .transform-input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+    }
+
+    .transform-input.is-correct {
+      border-color: var(--accent-green);
+      background-color: var(--accent-green-bg);
+    }
+
+    .transform-input.is-wrong {
+      border-color: var(--accent-red);
+      background-color: var(--accent-red-bg);
+    }
+
+    .item-correction {
+      font-size: 0.9rem;
+      color: #fca5a5;
+      display: none;
+    }
+
+    .item-correction.visible {
+      display: block;
+    }
+
+    /* ==========================================================================
+       BARRE D'ACTIONS DES EXERCICES & FEEDBACK GLOBAL
+       ========================================================================== */
+    .exercise-footer {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .action-group {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-check {
+      background-color: var(--accent-green);
+      color: #064e3b;
+    }
+
+    .btn-check:hover {
+      background-color: #34d399;
+      transform: translateY(-1px);
+    }
+
+    .btn-reset {
+      background-color: var(--bg-card-alt);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-reset:hover {
+      background-color: #334155;
+    }
+
+    .btn-nav-step {
+      background-color: rgba(59, 130, 246, 0.15);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-nav-step:hover:not(:disabled) {
+      background-color: var(--accent-blue);
+      color: white;
+    }
+
+    .btn-nav-step:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .feedback-banner {
+      margin-top: 1rem;
+      padding: 0.9rem 1.2rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      display: none;
+    }
+
+    .feedback-banner.success {
+      display: block;
+      background-color: var(--accent-green-bg);
+      border: 1px solid var(--accent-green);
+      color: #6ee7b7;
+    }
+
+    .feedback-banner.error {
+      display: block;
+      background-color: var(--accent-red-bg);
+      border: 1px solid var(--accent-red);
+      color: #fca5a5;
+    }
+
+    /* Encart final Production écrite (Ex 9-10 du manuel) */
+    .bonus-box {
+      background-color: var(--bg-main);
+      border: 1px dashed var(--accent-purple);
+      border-radius: var(--radius-md);
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .section-card {
+        padding: 1.2rem;
+      }
+      .exercise-footer {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .action-group {
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. BARRE SUPÉRIEURE (Lien Sommaire + Compteur de score global)
+       ======================================================================== -->
+  <header class="top-bar">
+    <a href="https://ariock06600.github.io/CM1-grammaire/" class="btn-sommaire">
+      ⬅ Sommaire
+    </a>
+    <div class="score-badge" id="globalScore">
+      ⭐ Exercices validés : 0 / 8
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. BANNIÈRE DE TITRE DE LA LEÇON
+       ======================================================================== -->
+  <section class="hero-banner">
+    <span class="hero-tag">Grammaire • CM1 • Thème : Les Jeux Olympiques 🏅</span>
+    <h1>2. Les formes négative et exclamative</h1>
+    <p class="hero-objective">
+      À la fin de cette leçon, tu sauras reconnaître et construire des phrases aux formes négative et exclamative pour raconter les exploits des Jeux Olympiques !
+    </p>
+  </section>
+
+  <!-- ========================================================================
+       3. BARRE DE NAVIGATION STICKY
+       ======================================================================== -->
+  <nav class="sticky-nav" aria-label="Navigation des sections">
+    <button class="nav-btn active" data-target="lecon">📖 Leçon</button>
+    <button class="nav-btn" data-target="ex1" id="nav-ex1">Ex. 1</button>
+    <button class="nav-btn" data-target="ex2" id="nav-ex2">Ex. 2</button>
+    <button class="nav-btn" data-target="ex3" id="nav-ex3">Ex. 3</button>
+    <button class="nav-btn" data-target="ex4" id="nav-ex4">Ex. 4</button>
+    <button class="nav-btn" data-target="ex5" id="nav-ex5">Ex. 5</button>
+    <button class="nav-btn" data-target="ex6" id="nav-ex6">Ex. 6</button>
+    <button class="nav-btn" data-target="ex7" id="nav-ex7">Ex. 7</button>
+    <button class="nav-btn" data-target="ex8" id="nav-ex8">Ex. 8</button>
+    <button class="nav-btn" data-target="all">📋 Tout afficher</button>
+  </nav>
+
+  <!-- ========================================================================
+       CONTENU PRINCIPAL
+       ======================================================================== -->
+  <main class="container">
+
+    <!-- ======================================================================
+         SECTION LEÇON : CHERCHONS + J'AI COMPRIS
+         ====================================================================== -->
+    <article class="section-card" id="sec-lecon">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">🔍</span>
+          <span>Cherchons pour construire la règle</span>
+        </div>
+        <span class="badge-domain">Découverte</span>
+      </div>
+
+      <div class="reading-box">
+        <p>
+          La flamme olympique arrive enfin dans le stade de Paris. Regardez les gradins remplis de spectateurs venus du monde entier.
+          <span class="text-blue-highlight">Quel stade magnifique !</span>
+          <span class="text-blue-highlight">Comme on aimerait gagner une médaille d'or !</span>
+        </p>
+        <p>
+          Mais pendant la finale du relais, la course est très difficile. Ce n'est pas le moment de relâcher les efforts. Ne perdons plus une seule seconde ! Il ne faut jamais abandonner avant la ligne d'arrivée. Les athlètes ne doivent ni se décourager, ni oublier l'esprit d'équipe !
+        </p>
+      </div>
+
+      <div class="research-questions">
+        <div class="q-item">
+          <div class="q-header">
+            <div>
+              <span class="q-letter">A</span>
+              <strong>Dans le 2<sup>e</sup> paragraphe, relève les marques de négation. Quel est le mot toujours présent ? Fais la liste des mots qui l'accompagnent.</strong>
+            </div>
+            <button class="btn-reveal" onclick="toggleAnswer('ans-a', this)">👁 Afficher la réponse</button>
+          </div>
+          <div class="q-answer" id="ans-a">
+            <strong>Réponse :</strong> Les marques de négation sont : <em>n' ... pas</em>, <em>Ne ... plus</em>, <em>ne ... jamais</em>, <em>ne ... ni ... ni</em>.<br>
+            Le mot toujours présent est <strong>ne</strong> (ou <strong>n'</strong> devant une voyelle). Il est accompagné de : <strong>pas, plus, jamais, ni... ni</strong>.
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-header">
+            <div>
+              <span class="q-letter">B</span>
+              <strong>Quels sentiments expriment les phrases en bleu ? Comment sont-elles construites ?</strong>
+            </div>
+            <button class="btn-reveal" onclick="toggleAnswer('ans-b', this)">👁 Afficher la réponse</button>
+          </div>
+          <div class="q-answer" id="ans-b">
+            <strong>Réponse :</strong> Elles expriment l'<strong>admiration</strong> et l'<strong>enthousiasme</strong> (un souhait fort). Elles commencent par un mot exclamatif (<em>Quel</em>, <em>Comme</em>) et se terminent par un <strong>point d'exclamation (!)</strong>.
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-header">
+            <div>
+              <span class="q-letter">C</span>
+              <strong>Relève deux autres phrases avec la même ponctuation dans le 2<sup>e</sup> paragraphe. De quel type de phrase s'agit-il ?</strong>
+            </div>
+            <button class="btn-reveal" onclick="toggleAnswer('ans-c', this)">👁 Afficher la réponse</button>
+          </div>
+          <div class="q-answer" id="ans-c">
+            <strong>Réponse :</strong> « <em>Ne perdons plus une seule seconde !</em> » (phrase <strong>impérative</strong> exprimant un ordre vif) et « <em>Les athlètes ne doivent ni se décourager, ni oublier l'esprit d'équipe !</em> » (phrase <strong>déclarative</strong> exprimant une émotion forte).
+          </div>
+        </div>
+      </div>
+
+      <!-- RÈGLE J'AI COMPRIS -->
+      <div class="rule-box">
+        <div class="rule-title">💡 J'ai compris</div>
+        <ul class="rule-list">
+          <li>
+            <strong>Une phrase peut être :</strong><br>
+            • <strong>à la forme affirmative</strong> : <em>J'ai assisté aux Jeux Olympiques.</em><br>
+            • <strong>à la forme négative</strong> : le verbe conjugué à un temps simple est alors encadré par les mots négatifs <span class="tag-neg">ne ... pas</span>, <span class="tag-neg">ne ... plus</span>, <span class="tag-neg">ne ... jamais</span>, <span class="tag-neg">ne ... rien</span>. On met <strong>n'</strong> devant une voyelle ou un <em>h</em> muet : <em>Je <span class="tag-neg">n'</span>habite <span class="tag-neg">pas</span> loin du stade.</em><br>
+            Avec une énumération, on utilise <span class="tag-neg">ne ... ni ... ni</span> : <em>Je cours et je saute. ➔ Je <span class="tag-neg">ne</span> cours <span class="tag-neg">ni</span> ne saute.</em>
+          </li>
+          <li>
+            <strong>à la forme exclamative</strong> pour exprimer une émotion (admiration, peur, colère, surprise...) ou un ordre vif :<br>
+            <em>Ce champion est rapide <span class="tag-exc">!</span></em> | <em>Va sur le podium <span class="tag-exc">!</span></em><br>
+            La phrase est terminée par un <strong>point d'exclamation (!)</strong> et se construit souvent avec un <strong>mot exclamatif</strong> : <em>que, comme, quel, quelle, quels, quelles</em>.<br>
+            <em><span class="tag-exc">Que</span> la piste est belle <span class="tag-exc">!</span></em> | <em><span class="tag-exc">Comme</span> ce saut est haut <span class="tag-exc">!</span></em>
+          </li>
+          <li>
+            <strong>Les formes négative et exclamative peuvent s'ajouter parfois</strong> aux phrases déclaratives et impératives :
+            <table class="rule-table">
+              <thead>
+                <tr>
+                  <th>Cumul des formes</th>
+                  <th>Phrase déclarative</th>
+                  <th>Phrase impérative</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Forme négative</strong></td>
+                  <td><em>Je <span class="tag-neg">ne</span> cours <span class="tag-neg">pas</span> le marathon.</em></td>
+                  <td><em><span class="tag-neg">Ne</span> cours <span class="tag-neg">pas</span> sur la piste.</em></td>
+                </tr>
+                <tr>
+                  <td><strong>Forme négative + exclamative</strong></td>
+                  <td><em>Je <span class="tag-neg">ne</span> cours <span class="tag-neg">pas</span> le marathon <span class="tag-exc">!</span></em></td>
+                  <td><em><span class="tag-neg">Ne</span> cours <span class="tag-neg">pas</span> sur la piste <span class="tag-exc">!</span></em></td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </div>
+
+      <div class="exercise-footer">
+        <div></div>
+        <div class="action-group">
+          <button class="btn btn-nav-step" onclick="switchSection('ex1')">Commencer les exercices (Ex. 1) ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ======================================================================
+         EXERCICE 1 : REPÉRAGE DES MARQUES DE NÉGATION (TOKENS CLIQUABLES)
+         ====================================================================== -->
+    <article class="section-card hidden" id="sec-ex1">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">1</span>
+          <span>Repérer les phrases négatives</span>
+        </div>
+        <span class="badge-domain">Je m'entraîne</span>
+      </div>
+
+      <p class="consigne">Clique uniquement sur les marques de négation dans les phrases négatives. (Ne clique rien dans les phrases affirmatives !)</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        La nageuse <span class="tag-neg">n'</span>est <span class="tag-neg">pas</span> fatiguée.
+      </div>
+
+      <div class="token-list" id="ex1-container"></div>
+      <div class="feedback-banner" id="fb-ex1"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button class="btn btn-check" onclick="checkTokensEx('ex1')">✔ Vérifier</button>
+          <button class="btn btn-reset" onclick="resetTokensEx('ex1')">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button class="btn btn-nav-step" onclick="switchSection('lecon')">⬅ Leçon</button>
+          <button class="btn btn-nav-step" onclick="switchSection('ex2')">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ======================================================================
+         EXERCICE 2 : REPÉRAGE DES MARQUES DE L'EXCLAMATION (TOKENS CLIQUABLES)
+         ====================================================================== -->
+    <article class="section-card hidden" id="sec-ex2">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">2</span>
+          <span>Indiquer les marques de l'exclamation</span>
+        </div>
+        <span class="badge-domain">Je m'entraîne</span>
+      </div>
+
+      <p class="consigne">Clique sur le mot exclamatif (au début) et sur le point d'exclamation (à la fin) dans chaque phrase.</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        <span class="tag-exc">Qu'</span>elle est rapide <span class="tag-exc">!</span>
+      </div>
+
+      <div class="token-list" id="ex2-container"></div>
+      <div class="feedback-banner" id="fb-ex2"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button class="btn btn-check" onclick="checkTokensEx('ex2')">✔ Vérifier</button>
+          <button class="btn btn-reset" onclick="resetTokensEx('ex2')">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button class="btn btn-nav-step" onclick="switchSection('ex1')">⬅ Précédent</button>
+          <button class="btn btn-nav-step" onclick="switchSection('ex3')">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ======================================================================
+         EXERCICE 3 : CLASSEMENT DANS UN TABLEAU (PARTIE 1 : a à e)
+         ====================================================================== -->
+    <article class="section-card hidden" id="sec-ex3">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">3</span>
+          <span>Classer les phrases (Série 1)</span>
+        </div>
+        <span class="badge-domain">Je m'entraîne</span>
+      </div>
+
+      <p class="consigne">Choisis le type et la forme de chaque phrase : le tableau récapitulatif se met à jour automatiquement !</p>
+
+      <div class="classify-grid" id="ex3-container"></div>
+
+      <div class="summary-table-wrapper">
+        <table class="summary-table" id="table-ex3">
+          <thead>
+            <tr>
+              <th>Type de phrase</th>
+              <th>Forme négative</th>
+              <th>Forme exclamative</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Phrases déclaratives</td>
+              <td id="ex3-decl-neg">—</td>
+              <td id="ex3-decl-exc">—</td>
+            </tr>
+            <tr>
+              <td>Phrases interrogatives</td>
+              <td id="ex3-int-neg">—</td>
+              <td id="ex3-int-exc">—</td>
+            </tr>
+            <tr>
+              <td>Phrases impératives</td>
+              <td id="ex3-imp-neg">—</td>
+              <td id="ex3-imp-exc">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="feedback-banner" id="fb-ex3"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button class="btn btn-check" onclick="checkClassifyEx('ex3')">✔ Vérifier</button>
+          <button class="btn btn-reset" onclick="resetClassifyEx('ex3')">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button class="btn btn-nav-step" onclick="switchSection('ex2')">⬅ Précédent</button>
+          <button class="btn btn-nav-step" onclick="switchSection('ex4')">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- ======================================================================
+         EXERCICE 4 : CLASSEMENT DANS UN TABLEAU (PARTIE 2 : f à j)
+         ====================================================================== -->
+    <article class="section-card hidden" id="sec-ex4">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">4</span>
+          <span>Classer les phrases (Série 2)</span>
+        </div>
+        <span class="badge-domain">Je m'entraîne</span>
+      </div>
+
+      <p class="consigne">Même consigne que l'exercice 3 : classe les phrases f à j selon leur type et leur forme.</p>
+
+      <div class="classify-grid" id="ex4-container"></div>
+
+      <div class="summary-table-wrapper">
+        <table class
