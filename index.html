@@ -1,1 +1,771 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammaire — CM1 | Sommaire des leçons</title>
+    <!-- Police arrondie et très lisible pour les enfants -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
 
+    <style>
+        /* ==========================================================================
+           1. VARIABLES DE DESIGN & THÈME SOMBRE CM1
+           ========================================================================== */
+        :root {
+            --bg-main: #0f172a;          /* Bleu nuit / ardoise profonde */
+            --bg-header: #131c31;        /* Fond d'en-tête légèrement nuancé */
+            --bg-card: #1e293b;          /* Surface des blocs thématiques */
+            --bg-item: #162033;          /* Surface des lignes de leçons */
+            --bg-item-hover: #25334d;    /* Survol doux d'une leçon */
+
+            --border-subtle: #334155;
+            --border-hover: #8ce052;
+
+            --text-primary: #f8fafc;     /* Blanc cassé très lisible */
+            --text-secondary: #cbd5e1;   /* Gris clair doux */
+            --text-muted: #94a3b8;
+
+            --lime: #8ce052;             /* Vert lime des pastilles du manuel */
+            --lime-hover: #a3ee6e;
+            --lime-dark: #0f172a;
+
+            /* Couleurs d'accentuation par thème */
+            --sky: #38bdf8;
+            --coral: #fb7185;
+            --amber: #fbbf24;
+            --violet: #a78bfa;
+            --teal: #2dd4bf;
+
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-pill: 9999px;
+        }
+
+        /* ==========================================================================
+           2. RÉINITIALISATION & BASE
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ==========================================================================
+           3. EN-TÊTE (HERO) & BARRE D'ACCÈS RAPIDE
+           ========================================================================== */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 85% 15%, rgba(140, 224, 82, 0.12), transparent 45%),
+                        radial-gradient(circle at 15% 85%, rgba(56, 189, 248, 0.10), transparent 45%),
+                        linear-gradient(180deg, var(--bg-header) 0%, var(--bg-main) 100%);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 2.75rem 1.25rem 2.25rem;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .level-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--lime);
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.45rem 1.1rem;
+            border-radius: var(--radius-pill);
+            margin-bottom: 1.25rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        }
+
+        .level-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--lime);
+            box-shadow: 0 0 10px var(--lime);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.4rem, 5vw, 3.5rem);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 0.85rem;
+            color: var(--text-primary);
+        }
+
+        .hero h1 span {
+            color: var(--lime);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+            font-weight: 600;
+            color: var(--text-secondary);
+            max-width: 620px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Barre de navigation par ancres */
+        .quick-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.65rem;
+        }
+
+        .nav-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-primary);
+            font-size: 0.92rem;
+            font-weight: 700;
+            padding: 0.6rem 1.05rem;
+            border-radius: var(--radius-pill);
+            transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .nav-pill:hover,
+        .nav-pill:focus-visible {
+            background-color: var(--bg-item-hover);
+            border-color: var(--lime);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        /* ==========================================================================
+           4. CONTENEUR PRINCIPAL & BLOCS THÉMATIQUES
+           ========================================================================== */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.25rem 1.25rem 3.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            flex-grow: 1;
+        }
+
+        .theme-section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+            scroll-margin-top: 1.25rem;
+        }
+
+        /* En-tête de chaque catégorie */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            padding-bottom: 1rem;
+            margin-bottom: 1.15rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-title-group {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .section-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-size: 1.45rem;
+            font-weight: 900;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+
+        .section-badge {
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 0.3rem 0.85rem;
+            border-radius: var(--radius-pill);
+            letter-spacing: 0.02em;
+        }
+
+        /* Variantes de couleurs par catégorie */
+        .theme-phrase .section-icon { background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); }
+        .theme-phrase .section-badge { background: rgba(56, 189, 248, 0.15); color: var(--sky); border: 1px solid rgba(56, 189, 248, 0.35); }
+
+        .theme-verbe .section-icon { background: rgba(251, 113, 133, 0.15); border: 1px solid rgba(251, 113, 133, 0.35); }
+        .theme-verbe .section-badge { background: rgba(251, 113, 133, 0.15); color: var(--coral); border: 1px solid rgba(251, 113, 133, 0.35); }
+
+        .theme-gn .section-icon { background: rgba(251, 191, 36, 0.15); border: 1px solid rgba(251, 191, 36, 0.35); }
+        .theme-gn .section-badge { background: rgba(251, 191, 36, 0.15); color: var(--amber); border: 1px solid rgba(251, 191, 36, 0.35); }
+
+        .theme-fonctions .section-icon { background: rgba(167, 139, 250, 0.15); border: 1px solid rgba(167, 139, 250, 0.35); }
+        .theme-fonctions .section-badge { background: rgba(167, 139, 250, 0.15); color: var(--violet); border: 1px solid rgba(167, 139, 250, 0.35); }
+
+        .theme-invariables .section-icon { background: rgba(45, 212, 191, 0.15); border: 1px solid rgba(45, 212, 191, 0.35); }
+        .theme-invariables .section-badge { background: rgba(45, 212, 191, 0.15); color: var(--teal); border: 1px solid rgba(45, 212, 191, 0.35); }
+
+        /* ==========================================================================
+           5. CARTES DE LEÇONS (LIENS CLIQUABLES AVEC PASTILLE & POINTILLÉS)
+           ========================================================================== */
+        .lesson-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .lesson-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            background-color: var(--bg-item);
+            border: 1.5px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 0.85rem 1.1rem;
+            transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+                        background-color 0.2s ease,
+                        border-color 0.2s ease,
+                        box-shadow 0.2s ease;
+        }
+
+        .lesson-card:hover,
+        .lesson-card:focus-visible {
+            background-color: var(--bg-item-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(140, 224, 82, 0.2);
+            outline: none;
+        }
+
+        .lesson-left {
+            display: flex;
+            align-items: center;
+            gap: 0.95rem;
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        /* Pastille verte numérotée */
+        .pastille {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--lime);
+            color: var(--lime-dark);
+            font-size: 1.1rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 3px 10px rgba(140, 224, 82, 0.28);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .lesson-card:hover .pastille {
+            background-color: var(--lime-hover);
+            transform: scale(1.07);
+        }
+
+        /* Titre + ligne de pointillés verts façon manuel scolaire */
+        .lesson-title-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .lesson-title {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.35;
+        }
+
+        .dotted-line {
+            flex-grow: 1;
+            border-bottom: 3px dotted rgba(140, 224, 82, 0.35);
+            min-width: 24px;
+            transition: border-color 0.2s ease;
+        }
+
+        .lesson-card:hover .dotted-line {
+            border-bottom-color: rgba(140, 224, 82, 0.85);
+        }
+
+        /* Bouton d'action visuel à droite */
+        .lesson-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background-color: rgba(140, 224, 82, 0.12);
+            color: var(--lime);
+            border: 1px solid rgba(140, 224, 82, 0.3);
+            font-size: 0.88rem;
+            font-weight: 800;
+            padding: 0.45rem 0.85rem;
+            border-radius: 12px;
+            flex-shrink: 0;
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+        }
+
+        .lesson-action .arrow {
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .lesson-card:hover .lesson-action {
+            background-color: var(--lime);
+            color: var(--lime-dark);
+            border-color: var(--lime);
+        }
+
+        .lesson-card:hover .lesson-action .arrow {
+            transform: translateX(4px);
+        }
+
+        /* ==========================================================================
+           6. PIED DE PAGE
+           ========================================================================== */
+        .footer {
+            border-top: 1px solid var(--border-subtle);
+            background-color: var(--bg-header);
+            padding: 1.5rem 1.25rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .footer-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--lime);
+            margin-right: 0.45rem;
+            vertical-align: middle;
+        }
+
+        /* ==========================================================================
+           7. ADAPTATION MOBILE & TABLETTE
+           ========================================================================== */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 2rem 1rem 1.75rem;
+            }
+
+            .theme-section {
+                padding: 1.15rem;
+                border-radius: 20px;
+            }
+
+            .section-header h2 {
+                font-size: 1.25rem;
+            }
+
+            .lesson-card {
+                padding: 0.75rem 0.85rem;
+                gap: 0.65rem;
+            }
+
+            .pastille {
+                width: 38px;
+                height: 38px;
+                font-size: 1rem;
+            }
+
+            .lesson-title {
+                font-size: 0.98rem;
+            }
+
+            .dotted-line {
+                display: none;
+            }
+
+            .lesson-action {
+                padding: 0.4rem 0.65rem;
+                font-size: 0.82rem;
+            }
+
+            .lesson-action .action-text {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- En-tête de la page -->
+    <header class="hero">
+        <div class="hero-inner">
+            <div class="level-badge">
+                <span class="level-dot" aria-hidden="true"></span>
+                <span>Classe de CM1 • Étude de la langue</span>
+            </div>
+
+            <h1><span>Grammaire</span></h1>
+            <p class="hero-subtitle">
+                Choisis ta leçon ci-dessous pour découvrir les règles et t’entraîner pas à pas.
+            </p>
+
+            <!-- Barre d'accès rapide par ancres -->
+            <nav class="quick-nav" aria-label="Accès rapide aux chapitres">
+                <a href="#phrase" class="nav-pill">💬 La phrase</a>
+                <a href="#verbe" class="nav-pill">⚡ Le verbe</a>
+                <a href="#gn" class="nav-pill">🏷️ Le groupe nominal</a>
+                <a href="#fonctions" class="nav-pill">🧩 Les fonctions</a>
+                <a href="#invariables" class="nav-pill">🔗 Les mots invariables</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sommaire complet des 16 leçons -->
+    <main class="container">
+
+        <!-- 1. LA PHRASE -->
+        <section id="phrase" class="theme-section theme-phrase" aria-labelledby="title-phrase">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <div class="section-icon" aria-hidden="true">💬</div>
+                    <h2 id="title-phrase">La phrase</h2>
+                </div>
+                <span class="section-badge">Leçons 1 et 2</span>
+            </div>
+
+            <div class="lesson-list">
+                <a href="1.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">1</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Les phrases déclarative, interrogative et impérative</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a href="2.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">2</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Les formes négative et exclamative</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 2. LE VERBE -->
+        <section id="verbe" class="theme-section theme-verbe" aria-labelledby="title-verbe">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <div class="section-icon" aria-hidden="true">⚡</div>
+                    <h2 id="title-verbe">Le verbe</h2>
+                </div>
+                <span class="section-badge">Leçons 3 et 4</span>
+            </div>
+
+            <div class="lesson-list">
+                <a href="3.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">3</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Reconnaitre un verbe conjugué à un temps simple (1)</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a href="4.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">4</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Reconnaitre un verbe conjugué à un temps simple (2)</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 3. LE GROUPE NOMINAL -->
+        <section id="gn" class="theme-section theme-gn" aria-labelledby="title-gn">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <div class="section-icon" aria-hidden="true">🏷️</div>
+                    <h2 id="title-gn">Le groupe nominal</h2>
+                </div>
+                <span class="section-badge">Leçons 5 à 9</span>
+            </div>
+
+            <div class="lesson-list">
+                <a href="5.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">5</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Le nom et le groupe nominal</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a href="6.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">6</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Les articles</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a href="7.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">7</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Les déterminants possessifs et démonstratifs</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a href="8.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">8</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Les adjectifs</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a href="9.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">9</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Le complément du nom</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 4. LES FONCTIONS -->
+        <section id="fonctions" class="theme-section theme-fonctions" aria-labelledby="title-fonctions">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <div class="section-icon" aria-hidden="true">🧩</div>
+                    <h2 id="title-fonctions">Les fonctions</h2>
+                </div>
+                <span class="section-badge">Leçons 10 à 14</span>
+            </div>
+
+            <div class="lesson-list">
+                <a href="10.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">10</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Le sujet (1)</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a href="11.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">11</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Le sujet (2)</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a href="12.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">12</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Les compléments d’objet</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a href="13.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">13</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Les compléments circonstanciels</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a href="14.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">14</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Les constituants d’une phrase</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 5. LES MOTS INVARIABLES -->
+        <section id="invariables" class="theme-section theme-invariables" aria-labelledby="title-invariables">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <div class="section-icon" aria-hidden="true">🔗</div>
+                    <h2 id="title-invariables">Les mots invariables</h2>
+                </div>
+                <span class="section-badge">Leçons 15 et 16</span>
+            </div>
+
+            <div class="lesson-list">
+                <a href="15.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">15</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Les adverbes</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+
+                <a href="16.html" class="lesson-card">
+                    <div class="lesson-left">
+                        <span class="pastille">16</span>
+                        <div class="lesson-title-wrap">
+                            <span class="lesson-title">Les conjonctions de coordination</span>
+                            <span class="dotted-line" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <span class="lesson-action">
+                        <span class="action-text">Ouvrir</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
+        <p><span class="footer-dot" aria-hidden="true"></span>Grammaire CM1 — Sommaire des 16 leçons</p>
+    </footer>
+
+</body>
+</html>
