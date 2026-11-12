@@ -1,1 +1,1812 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammaire CM1 - Reconnaître un verbe conjugué à un temps simple (1) (Harcèlement scolaire)</title>
+  <style>
+    /* ==========================================================================
+       1. VARIABLES & THÈME SOMBRE MODERNE
+       ========================================================================== */
+    :root {
+      --bg-main: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-alt: #263349;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
 
+      --accent-blue: #3b82f6;
+      --accent-blue-hover: #2563eb;
+      --accent-green: #10b981;
+      --accent-green-bg: rgba(16, 185, 129, 0.16);
+      --accent-red: #ef4444;
+      --accent-red-bg: rgba(239, 68, 68, 0.16);
+      --accent-amber: #f59e0b;
+      --accent-amber-bg: rgba(245, 158, 11, 0.16);
+      --accent-purple: #8b5cf6;
+      --accent-purple-bg: rgba(139, 92, 246, 0.16);
+
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 4rem;
+    }
+
+    /* ==========================================================================
+       2. BARRE SUPÉRIEURE & BANNIÈRE DE TITRE
+       ========================================================================== */
+    .top-bar {
+      background-color: #090d16;
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn-sommaire {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-sommaire:hover {
+      background-color: var(--accent-blue);
+      border-color: var(--accent-blue);
+      transform: translateX(-2px);
+    }
+
+    .score-badge {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.22), rgba(139, 92, 246, 0.22));
+      border: 1px solid var(--accent-amber);
+      color: #fde68a;
+      padding: 0.5rem 1.15rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.15);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #065f46 0%, #1e3a8a 55%, #0f172a 100%);
+      border-bottom: 2px solid var(--accent-green);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background-color: var(--accent-amber);
+      color: #0f172a;
+      font-weight: 800;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-banner h1 {
+      font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-objective {
+      max-width: 760px;
+      margin: 0 auto;
+      color: #e2e8f0;
+      font-size: 1rem;
+    }
+
+    /* ==========================================================================
+       3. BARRE DE NAVIGATION STICKY
+       ========================================================================== */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.7rem 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    }
+
+    .nav-btn {
+      background-color: var(--bg-card);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.88rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn:hover {
+      color: var(--text-main);
+      border-color: var(--accent-blue);
+    }
+
+    .nav-btn.active {
+      background-color: var(--accent-blue);
+      color: #ffffff;
+      border-color: var(--accent-blue);
+    }
+
+    .nav-btn.completed {
+      border-color: var(--accent-green);
+      color: #6ee7b7;
+    }
+
+    .nav-btn.completed.active {
+      background-color: var(--accent-green);
+      color: #064e3b;
+    }
+
+    .nav-btn.completed::after {
+      content: " ✓";
+      font-weight: bold;
+    }
+
+    /* ==========================================================================
+       4. CONTENEUR PRINCIPAL & CARTES DE SECTION
+       ========================================================================== */
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .section-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      animation: fadeIn 0.25s ease;
+    }
+
+    .section-card.hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .badge-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: var(--accent-purple);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .badge-domain {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background-color: var(--accent-purple-bg);
+      color: #c4b5fd;
+      border: 1px solid rgba(139, 92, 246, 0.35);
+    }
+
+    /* ==========================================================================
+       5. LEÇON : ÉTIQUETTES DE DÉCOUVERTE & RÈGLE "J'AI COMPRIS"
+       ========================================================================== */
+    .context-intro {
+      background-color: var(--bg-main);
+      border-left: 4px solid var(--accent-blue);
+      padding: 1rem 1.25rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-bottom: 1.25rem;
+      color: #e2e8f0;
+    }
+
+    .labels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      gap: 0.65rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .verb-label {
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.55rem 0.75rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .verb-label:hover {
+      border-color: var(--accent-amber);
+      transform: translateY(-1px);
+    }
+
+    .verb-label.tense-present {
+      background-color: rgba(16, 185, 129, 0.2);
+      border-color: var(--accent-green);
+      color: #6ee7b7;
+    }
+
+    .verb-label.tense-imparfait {
+      background-color: rgba(59, 130, 246, 0.2);
+      border-color: var(--accent-blue);
+      color: #93c5fd;
+    }
+
+    .verb-label.tense-futur {
+      background-color: rgba(245, 158, 11, 0.2);
+      border-color: var(--accent-amber);
+      color: #fde68a;
+    }
+
+    .legend-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .legend-pill {
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .research-questions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .q-item {
+      background-color: var(--bg-card-alt);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.25rem;
+    }
+
+    .q-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .q-letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background-color: var(--accent-red);
+      color: white;
+      font-weight: bold;
+      font-size: 0.85rem;
+      margin-right: 0.5rem;
+    }
+
+    .btn-reveal {
+      background-color: rgba(59, 130, 246, 0.2);
+      color: #93c5fd;
+      border: 1px solid var(--accent-blue);
+      padding: 0.4rem 0.85rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .btn-reveal:hover {
+      background-color: var(--accent-blue);
+      color: white;
+    }
+
+    .q-answer {
+      margin-top: 0.85rem;
+      padding-top: 0.85rem;
+      border-top: 1px dashed var(--border-color);
+      color: #6ee7b7;
+      display: none;
+    }
+
+    .q-answer.visible {
+      display: block;
+    }
+
+    .rule-box {
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.09) 0%, rgba(30, 41, 59, 0.7) 100%);
+      border: 2px solid var(--accent-green);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .rule-title {
+      display: inline-block;
+      background-color: var(--accent-green);
+      color: #064e3b;
+      font-weight: 800;
+      padding: 0.3rem 1rem;
+      border-radius: var(--radius-sm);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .strategies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .strategy-card {
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.1rem;
+    }
+
+    .strategy-card h4 {
+      color: var(--accent-amber);
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .verb-bracket {
+      background-color: var(--accent-purple-bg);
+      color: #d8b4fe;
+      border: 1px solid var(--accent-purple);
+      padding: 0.08rem 0.38rem;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    /* ==========================================================================
+       6. CONSIGNES, EXEMPLES & ENCART AIDE
+       ========================================================================== */
+    .consigne {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #f1f5f9;
+    }
+
+    .exemple-box {
+      background-color: rgba(59, 130, 246, 0.12);
+      border: 1px dashed var(--accent-blue);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1.1rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+
+    .exemple-label {
+      font-weight: 800;
+      color: var(--accent-blue);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      margin-right: 0.5rem;
+    }
+
+    .aide-box {
+      background-color: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .aide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ==========================================================================
+       7. EXERCICES DE TRANSFORMATION (CHAMPS DE TEXTE)
+       ========================================================================== */
+    .transform-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .transform-item {
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .transform-prompt {
+      font-size: 1rem;
+      color: #e2e8f0;
+    }
+
+    .double-input-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 0.65rem;
+    }
+
+    @media (max-width: 640px) {
+      .double-input-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .transform-input {
+      width: 100%;
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.65rem 0.9rem;
+      font-size: 0.98rem;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .transform-input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+    }
+
+    .transform-input.is-correct {
+      border-color: var(--accent-green);
+      background-color: var(--accent-green-bg);
+    }
+
+    .transform-input.is-wrong {
+      border-color: var(--accent-red);
+      background-color: var(--accent-red-bg);
+    }
+
+    .item-correction {
+      font-size: 0.9rem;
+      color: #fca5a5;
+      display: none;
+    }
+
+    .item-correction.visible {
+      display: block;
+    }
+
+    /* ==========================================================================
+       8. EXERCICES DE REPÉRAGE : MOTS CLIQUABLES
+       ========================================================================== */
+    .token-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .token-row {
+      background-color: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 0.85rem 1rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .row-letter {
+      font-weight: 800;
+      color: var(--accent-amber);
+      margin-right: 0.5rem;
+      min-width: 24px;
+    }
+
+    .token {
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+      padding: 0.32rem 0.62rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      user-select: none;
+      transition: all 0.15s ease;
+    }
+
+    .token:hover {
+      border-color: var(--accent-blue);
+      background-color: var(--bg-card-alt);
+    }
+
+    .token.selected {
+      background-color: var(--accent-amber);
+      color: #0f172a;
+      border-color: var(--accent-amber);
+      font-weight: 700;
+      transform: translateY(-1px);
+    }
+
+    .token.correct-token {
+      background-color: var(--accent-green) !important;
+      color: #064e3b !important;
+      border-color: var(--accent-green) !important;
+      font-weight: 700;
+    }
+
+    .token.wrong-token {
+      background-color: var(--accent-red) !important;
+      color: #ffffff !important;
+      border-color: var(--accent-red) !important;
+      text-decoration: line-through;
+    }
+
+    /* ==========================================================================
+       9. BARRE D'ACTIONS DES EXERCICES & FEEDBACK
+       ========================================================================== */
+    .exercise-footer {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .action-group {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-check {
+      background-color: var(--accent-green);
+      color: #064e3b;
+    }
+
+    .btn-check:hover {
+      background-color: #34d399;
+      transform: translateY(-1px);
+    }
+
+    .btn-reset {
+      background-color: var(--bg-card-alt);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-reset:hover {
+      background-color: #334155;
+    }
+
+    .btn-nav-step {
+      background-color: rgba(59, 130, 246, 0.16);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.45);
+    }
+
+    .btn-nav-step:hover {
+      background-color: var(--accent-blue);
+      color: white;
+    }
+
+    .feedback-banner {
+      margin-top: 1rem;
+      padding: 0.9rem 1.2rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      display: none;
+    }
+
+    .feedback-banner.success {
+      display: block;
+      background-color: var(--accent-green-bg);
+      border: 1px solid var(--accent-green);
+      color: #6ee7b7;
+    }
+
+    .feedback-banner.error {
+      display: block;
+      background-color: var(--accent-red-bg);
+      border: 1px solid var(--accent-red);
+      color: #fca5a5;
+    }
+
+    @media (max-width: 600px) {
+      .section-card {
+        padding: 1.2rem;
+      }
+      .exercise-footer {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .action-group {
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRE SUPÉRIEURE -->
+  <header class="top-bar">
+    <a href="https://ariock06600.github.io/CM1-grammaire/" class="btn-sommaire">
+      ⬅ Sommaire
+    </a>
+    <div class="score-badge" id="globalScore">
+      ⭐ Exercices validés : 0 / 8
+    </div>
+  </header>
+
+  <!-- BANNIÈRE DE TITRE -->
+  <section class="hero-banner">
+    <span class="hero-tag">Grammaire • CM1 • Thème : Le harcèlement scolaire 🤝</span>
+    <h1>3. Reconnaître un verbe conjugué à un temps simple (1)</h1>
+    <p class="hero-objective">
+      À la fin de cette leçon, tu sauras repérer les verbes conjugués en changeant la personne ou le temps pour rédiger des messages de prévention contre le harcèlement scolaire.
+    </p>
+  </section>
+
+  <!-- BARRE DE NAVIGATION STICKY -->
+  <nav class="sticky-nav" aria-label="Navigation des sections">
+    <button type="button" class="nav-btn active" data-target="lecon">📖 Leçon</button>
+    <button type="button" class="nav-btn" data-target="ex1" id="nav-ex1">Ex. 1</button>
+    <button type="button" class="nav-btn" data-target="ex2" id="nav-ex2">Ex. 2</button>
+    <button type="button" class="nav-btn" data-target="ex3" id="nav-ex3">Ex. 3</button>
+    <button type="button" class="nav-btn" data-target="ex4" id="nav-ex4">Ex. 4</button>
+    <button type="button" class="nav-btn" data-target="ex5" id="nav-ex5">Ex. 5</button>
+    <button type="button" class="nav-btn" data-target="ex6" id="nav-ex6">Ex. 6</button>
+    <button type="button" class="nav-btn" data-target="ex7" id="nav-ex7">Ex. 7</button>
+    <button type="button" class="nav-btn" data-target="ex8" id="nav-ex8">Ex. 8</button>
+    <button type="button" class="nav-btn" data-target="all">📋 Tout afficher</button>
+  </nav>
+
+  <!-- CONTENEUR PRINCIPAL -->
+  <main class="container">
+
+    <!-- LEÇON -->
+    <article class="section-card" id="sec-lecon">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">🔍</span>
+          <span>Cherchons pour construire la règle</span>
+        </div>
+        <span class="badge-domain">Découverte</span>
+      </div>
+
+      <div class="context-intro">
+        <strong>Observe ces étiquettes du verbe <em>changer</em></strong> (comme : <em>« Les élèves changent d'attitude pour stopper les moqueries »</em>).<br>
+        <small style="color: var(--text-muted);">💡 Astuce interactive : clique sur les étiquettes pour les classer par couleur selon leur temps (Présent / Imparfait / Futur) !</small>
+      </div>
+
+      <div class="legend-bar">
+        <span>Légende du tri :</span>
+        <span class="legend-pill" style="background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border: 1px solid #10b981;">1 clic : Présent</span>
+        <span class="legend-pill" style="background: rgba(59, 130, 246, 0.2); color: #93c5fd; border: 1px solid #3b82f6;">2 clics : Imparfait</span>
+        <span class="legend-pill" style="background: rgba(245, 158, 11, 0.2); color: #fde68a; border: 1px solid #f59e0b;">3 clics : Futur</span>
+        <button type="button" class="btn btn-reset" id="btn-reset-labels" style="padding: 0.25rem 0.65rem; font-size: 0.8rem;">↺ Réinitialiser les couleurs</button>
+      </div>
+
+      <div class="labels-grid" id="discovery-labels"></div>
+
+      <div class="research-questions">
+        <div class="q-item">
+          <div class="q-header">
+            <div>
+              <span class="q-letter">A</span>
+              <strong>Quelles sont les étiquettes que tu mettrais ensemble ? Explique ton choix.</strong>
+            </div>
+            <button type="button" class="btn-reveal" data-answer="ans-a">👁 Afficher la réponse</button>
+          </div>
+          <div class="q-answer" id="ans-a">
+            <strong>Réponse :</strong> On peut regrouper les étiquettes selon <strong>le temps</strong> (présent : <em>je change, tu changes, il/elle change, nous changeons, vous changez, ils/elles changent</em> ; imparfait : <em>je changeais...</em> ; futur : <em>je changerai...</em>) ou selon <strong>la personne</strong> (<em>je, tu, il/elle, nous, vous, ils/elles</em>).
+          </div>
+        </div>
+
+        <div class="q-item">
+          <div class="q-header">
+            <div>
+              <span class="q-letter">B</span>
+              <strong>Qu'est-ce qui fait changer le verbe de forme ?</strong>
+            </div>
+            <button type="button" class="btn-reveal" data-answer="ans-b">👁 Afficher la réponse</button>
+          </div>
+          <div class="q-answer" id="ans-b">
+            <strong>Réponse :</strong> Le verbe change de forme (sa terminaison change) quand on modifie <strong>la personne</strong> (le sujet) ou <strong>le temps</strong> de la phrase (hier, aujourd'hui, demain).
+          </div>
+        </div>
+      </div>
+
+      <div class="rule-box">
+        <div class="rule-title">💡 J'ai compris</div>
+        <p style="margin-bottom: 0.75rem;">
+          ▶ Comme un caméléon qui s'adapte à son environnement, <strong>le verbe conjugué change de forme très souvent dans la phrase !</strong><br>
+          ▶ Voici <strong>deux stratégies</strong> infaillibles pour le repérer :
+        </p>
+
+        <div class="strategies-grid">
+          <div class="strategy-card">
+            <h4>1. Changer la personne</h4>
+            <p>
+              J'<span class="verb-bracket">[observe]</span> la cour de récréation.<br>
+              Nous <span class="verb-bracket">[observons]</span> la cour de récréation.<br>
+              <small style="color: var(--text-muted);">Lorsqu'on change la personne, le mot <em>observe</em> change de forme. C'est donc le verbe.</small>
+            </p>
+          </div>
+          <div class="strategy-card">
+            <h4>2. Changer le temps</h4>
+            <p>
+              Demain, j'<span class="verb-bracket">[observerai]</span> la cour.<br>
+              Hier, j'<span class="verb-bracket">[observais]</span> la cour.<br>
+              <small style="color: var(--text-muted);">Lorsqu'on change le temps, le mot <em>observe</em> change de forme. C'est donc le verbe.</small>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-footer">
+        <div></div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex1">Commencer les exercices (Ex. 1) ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- EXERCICE 1 -->
+    <article class="section-card hidden" id="sec-ex1">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">1</span>
+          <span>Trouver le verbe en changeant la personne (avec « nous »)</span>
+        </div>
+        <span class="badge-domain">Je m'entraîne</span>
+      </div>
+
+      <p class="consigne">Remplace le sujet en gras par <strong>nous</strong>, écris la phrase obtenue en mettant le verbe conjugué entre crochets <code>[ ]</code>, puis recopie le verbe d'origine.</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        <strong>L'élève</strong> console son camarade. ➔ Phrase : <em>Nous <span class="verb-bracket">[consolons]</span> son camarade.</em> | Verbe d'origine : <em>console</em>
+      </div>
+
+      <div class="transform-list" id="ex1-container"></div>
+      <div class="feedback-banner" id="fb-ex1"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-transform="ex1">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-transform="ex1">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="lecon">⬅ Leçon</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex2">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- EXERCICE 2 -->
+    <article class="section-card hidden" id="sec-ex2">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">2</span>
+          <span>Même consigne que l'exercice 1</span>
+        </div>
+        <span class="badge-domain">Je m'entraîne</span>
+      </div>
+
+      <p class="consigne">Remplace le sujet par <strong>nous</strong>, écris la phrase obtenue avec le verbe conjugué entre crochets <code>[ ]</code>, puis indique le verbe de départ.</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        Je crains les moqueries. ➔ Phrase : <em>Nous <span class="verb-bracket">[craignons]</span> les moqueries.</em> | Verbe d'origine : <em>crains</em>
+      </div>
+
+      <div class="transform-list" id="ex2-container"></div>
+      <div class="feedback-banner" id="fb-ex2"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-transform="ex2">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-transform="ex2">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex1">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex3">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- EXERCICE 3 -->
+    <article class="section-card hidden" id="sec-ex3">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">3</span>
+          <span>Remplacer « il » par « nous » et relever le verbe</span>
+        </div>
+        <span class="badge-domain">Je m'entraîne</span>
+      </div>
+
+      <p class="consigne">Dans chaque courte histoire sur la solidarité à l'école, remplace <strong>il</strong> par <strong>nous</strong> pour trouver le verbe conjugué entre crochets.</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        <strong>Il</strong> protège son ami. ➔ <em>Nous <span class="verb-bracket">[protégeons]</span> son ami.</em> (verbe : <em>protège</em>)
+      </div>
+
+      <div class="transform-list" id="ex3-container"></div>
+      <div class="feedback-banner" id="fb-ex3"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-transform="ex3">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-transform="ex3">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex2">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex4">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- EXERCICE 4 -->
+    <article class="section-card hidden" id="sec-ex4">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">4</span>
+          <span>Trouver le verbe en changeant le temps</span>
+        </div>
+        <span class="badge-domain">Je m'entraîne</span>
+      </div>
+
+      <p class="consigne">Observe chaque paire de phrases (temps différents) et clique sur les verbes qui ont changé de forme.</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        Ses amis <span class="verb-bracket">[ont]</span> du courage. • Ses amis <span class="verb-bracket">[avaient]</span> du courage.
+      </div>
+
+      <div class="token-list" id="ex4-container"></div>
+      <div class="feedback-banner" id="fb-ex4"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-tokens="ex4">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-tokens="ex4">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex3">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex5">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- EXERCICE 5 -->
+    <article class="section-card hidden" id="sec-ex5">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">5</span>
+          <span>Réécrire les phrases au futur en commençant par « Demain »</span>
+        </div>
+        <span class="badge-domain">Je m'entraîne</span>
+      </div>
+
+      <div class="aide-box">
+        <strong style="color: #c4b5fd;">🆘 AIDE — Pour transformer les verbes au futur :</strong>
+        <div class="aide-grid">
+          <div>• je chanterai / tu chanteras / il chantera / nous chanterons / vous chanterez / ils chanteront</div>
+          <div>• il/elle/on <strong>est</strong> ➔ il/elle/on <strong>sera</strong><br>• ils/elles <strong>sont</strong> ➔ ils/elles <strong>seront</strong></div>
+          <div>• il/elle/on <strong>a</strong> ➔ il/elle/on <strong>aura</strong><br>• ils/elles <strong>ont</strong> ➔ ils/elles <strong>auront</strong></div>
+        </div>
+      </div>
+
+      <p class="consigne">Réécris chaque phrase au futur en commençant par <strong>Demain,</strong> et place le verbe conjugué entre crochets <code>[ ]</code>.</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        Le délégué a une bonne idée. ➔ <em>Demain, le délégué <span class="verb-bracket">[aura]</span> une bonne idée.</em>
+      </div>
+
+      <div class="transform-list" id="ex5-container"></div>
+      <div class="feedback-banner" id="fb-ex5"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-transform="ex5">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-transform="ex5">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex4">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex6">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- EXERCICE 6 -->
+    <article class="section-card hidden" id="sec-ex6">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">6</span>
+          <span>Utiliser l'une des deux stratégies (personne ou temps)</span>
+        </div>
+        <span class="badge-domain">Approfondir</span>
+      </div>
+
+      <p class="consigne">Trouve le verbe conjugué en transformant la phrase (soit avec <strong>Nous</strong>, soit avec <strong>Demain,</strong>) et mets le verbe obtenu entre crochets <code>[ ]</code>.</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        Ils repoussent les moqueurs. ➔ <em>Nous <span class="verb-bracket">[repoussons]</span> les moqueurs.</em> OU <em>Demain, ils <span class="verb-bracket">[repousseront]</span> les moqueurs.</em>
+      </div>
+
+      <div class="transform-list" id="ex6-container"></div>
+      <div class="feedback-banner" id="fb-ex6"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-transform="ex6">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-transform="ex6">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex5">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex7">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- EXERCICE 7 -->
+    <article class="section-card hidden" id="sec-ex7">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">7</span>
+          <span>Trouver le verbe conjugué avec la stratégie de ton choix</span>
+        </div>
+        <span class="badge-domain">Approfondir</span>
+      </div>
+
+      <p class="consigne">Dans ta tête, change la personne ou le temps de la phrase, puis clique directement sur le verbe conjugué de chaque phrase.</p>
+
+      <div class="token-list" id="ex7-container"></div>
+      <div class="feedback-banner" id="fb-ex7"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-tokens="ex7">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-tokens="ex7">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex6">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="ex8">Suivant ➡</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- EXERCICE 8 -->
+    <article class="section-card hidden" id="sec-ex8">
+      <div class="section-header">
+        <div class="section-title">
+          <span class="badge-num">8</span>
+          <span>À l'oral et à l'écrit : Devinettes et verbes « schtroumpfés »</span>
+        </div>
+        <span class="badge-domain">Production</span>
+      </div>
+
+      <p class="consigne">Comme dans le défi oral du manuel, retrouve le verbe conjugué qui se cache derrière le mot <strong>schtroumpfer</strong> dans ces phrases contre le harcèlement scolaire !</p>
+      <div class="exemple-box">
+        <span class="exemple-label">Exemple</span>
+        Dans la cour, Léa <em>schtroumpfe</em> son camarade triste. ➔ Verbe conjugué : <em>console</em> (ou <em>aide</em>)
+      </div>
+
+      <div class="transform-list" id="ex8-container"></div>
+      <div class="feedback-banner" id="fb-ex8"></div>
+
+      <div class="exercise-footer">
+        <div class="action-group">
+          <button type="button" class="btn btn-check" data-check-transform="ex8">✔ Vérifier</button>
+          <button type="button" class="btn btn-reset" data-reset-transform="ex8">↺ Recommencer</button>
+        </div>
+        <div class="action-group">
+          <button type="button" class="btn btn-nav-step" data-go="ex7">⬅ Précédent</button>
+          <button type="button" class="btn btn-nav-step" data-go="all">📋 Tout afficher</button>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <script>
+    /* ==========================================================================
+       1. DONNÉES PÉDAGOGIQUES (THÈME EXCLUSIF : HARCÈLEMENT SCOLAIRE - CM1)
+       ========================================================================== */
+    const DISCOVERY_LABELS = [
+      "il/elle changeait", "je changeais", "tu changeras",
+      "il/elle changera", "nous changions", "vous changez",
+      "ils/elles changent", "tu changes", "il/elle change",
+      "vous changerez", "je changerai", "ils/elles changeaient",
+      "je change", "vous changiez", "ils/elles changeront",
+      "nous changeons", "nous changerons", "tu changeais"
+    ];
+
+    const EXERCISES_DATA = {
+      ex1: [
+        {
+          letter: "a.",
+          prompt: "<strong>J'</strong>observe les élèves dans la cour.",
+          hasTwoFields: true,
+          placeholder1: "Phrase avec Nous [verbe]...",
+          placeholder2: "Verbe d'origine",
+          accepted1: ["Nous [observons] les élèves dans la cour.", "Nous observons les élèves dans la cour."],
+          accepted2: ["observe", "j'observe"],
+          sample: "Nous [observons] les élèves dans la cour. (verbe : observe)"
+        },
+        {
+          letter: "b.",
+          prompt: "<strong>Tu</strong> détestes les moqueries méchantes.",
+          hasTwoFields: true,
+          placeholder1: "Phrase avec Nous [verbe]...",
+          placeholder2: "Verbe d'origine",
+          accepted1: ["Nous [détestons] les moqueries méchantes.", "Nous détestons les moqueries méchantes."],
+          accepted2: ["détestes"],
+          sample: "Nous [détestons] les moqueries méchantes. (verbe : détestes)"
+        },
+        {
+          letter: "c.",
+          prompt: "<strong>Certains camarades</strong> aident les enfants isolés.",
+          hasTwoFields: true,
+          placeholder1: "Phrase avec Nous [verbe]...",
+          placeholder2: "Verbe d'origine",
+          accepted1: ["Nous [aidons] les enfants isolés.", "Nous aidons les enfants isolés."],
+          accepted2: ["aident"],
+          sample: "Nous [aidons] les enfants isolés. (verbe : aident)"
+        },
+        {
+          letter: "d.",
+          prompt: "<strong>Il</strong> a peur et <strong>il</strong> cherche un adulte.",
+          hasTwoFields: true,
+          placeholder1: "Phrase avec Nous [verbe1] et nous [verbe2]...",
+          placeholder2: "Les 2 verbes d'origine",
+          accepted1: [
+            "Nous [avons] peur et nous [cherchons] un adulte.",
+            "Nous avons peur et nous cherchons un adulte."
+          ],
+          accepted2: ["a, cherche", "a et cherche", "a cherche"],
+          sample: "Nous [avons] peur et nous [cherchons] un adulte. (verbes : a, cherche)"
+        },
+        {
+          letter: "e.",
+          prompt: "Chaque semaine, <strong>les élèves</strong> discutent du respect.",
+          hasTwoFields: true,
+          placeholder1: "Phrase avec Nous [verbe]...",
+          placeholder2: "Verbe d'origine",
+          accepted1: [
+            "Chaque semaine, nous [discutons] du respect.",
+            "Chaque semaine nous [discutons] du respect.",
+            "Chaque semaine, nous discutons du respect.",
+            "Chaque semaine nous discutons du respect."
+          ],
+          accepted2: ["discutent"],
+          sample: "Chaque semaine, nous [discutons] du respect. (verbe : discutent)"
+        }
+      ],
+      ex2: [
+        {
+          letter: "a.",
+          prompt: "<strong>J'</strong>admire le courage de ce témoin.",
+          hasTwoFields: true,
+          placeholder1: "Phrase avec Nous [verbe]...",
+          placeholder2: "Verbe d'origine",
+          accepted1: ["Nous [admirons] le courage de ce témoin.", "Nous admirons le courage de ce témoin."],
+          accepted2: ["admire", "j'admire"],
+          sample: "Nous [admirons] le courage de ce témoin. (verbe : admire)"
+        },
+        {
+          letter: "b.",
+          prompt: "<strong>Il</strong> écoute attentivement son camarade.",
+          hasTwoFields: true,
+          placeholder1: "Phrase avec Nous [verbe]...",
+          placeholder2: "Verbe d'origine",
+          accepted1: ["Nous [écoutons] attentivement son camarade.", "Nous écoutons attentivement son camarade."],
+          accepted2: ["écoute"],
+          sample: "Nous [écoutons] attentivement son camarade. (verbe : écoute)"
+        },
+        {
+          letter: "c.",
+          prompt: "<strong>Vous</strong> préférez le calme et la bienveillance.",
+          hasTwoFields: true,
+          placeholder1: "Phrase avec Nous [verbe]...",
+          placeholder2: "Verbe d'origine",
+          accepted1: ["Nous [préférons] le calme et la bienveillance.", "Nous préférons le calme et la bienveillance."],
+          accepted2: ["préférez"],
+          sample: "Nous [préférons] le calme et la bienveillance. (verbe : préférez)"
+        },
+        {
+          letter: "d.",
+          prompt: "<strong>Ils</strong> ne laissent jamais un ami tout seul.",
+          hasTwoFields: true,
+          placeholder1: "Phrase avec Nous [verbe]...",
+          placeholder2: "Verbe d'origine",
+          accepted1: ["Nous ne [laissons] jamais un ami tout seul.", "Nous ne laissons jamais un ami tout seul."],
+          accepted2: ["laissent"],
+          sample: "Nous ne [laissons] jamais un ami tout seul. (verbe : laissent)"
+        },
+        {
+          letter: "e.",
+          prompt: "<strong>Ils</strong> parlent ou <strong>ils</strong> préviennent la maîtresse.",
+          hasTwoFields: true,
+          placeholder1: "Phrase avec Nous [verbe1] ou nous [verbe2]...",
+          placeholder2: "Les 2 verbes d'origine",
+          accepted1: [
+            "Nous [parlons] ou nous [prévenons] la maîtresse.",
+            "Nous parlons ou nous prévenons la maîtresse."
+          ],
+          accepted2: ["parlent, préviennent", "parlent et préviennent", "parlent ou préviennent", "parlent préviennent"],
+          sample: "Nous [parlons] ou nous [prévenons] la maîtresse. (verbes : parlent, préviennent)"
+        }
+      ],
+      ex3: [
+        {
+          letter: "a.",
+          prompt: "<strong>Il</strong> repère l'élève triste. <strong>Il</strong> approche doucement et <strong>il</strong> propose un jeu calme.",
+          hasTwoFields: false,
+          placeholder1: "Écris les 3 phrases avec Nous [verbe]...",
+          accepted1: [
+            "Nous [repérons] l'élève triste. Nous [approchons] doucement et nous [proposons] un jeu calme.",
+            "Nous repérons l'élève triste. Nous approchons doucement et nous proposons un jeu calme."
+          ],
+          sample: "Nous [repérons] l'élève triste. Nous [approchons] doucement et nous [proposons] un jeu calme."
+        },
+        {
+          letter: "b.",
+          prompt: "<strong>Il</strong> refuse les insultes et <strong>il</strong> rassure son camarade avec gentillesse.",
+          hasTwoFields: false,
+          placeholder1: "Écris la phrase avec Nous [verbe1] et nous [verbe2]...",
+          accepted1: [
+            "Nous [refusons] les insultes et nous [rassurons] son camarade avec gentillesse.",
+            "Nous refusons les insultes et nous rassurons son camarade avec gentillesse."
+          ],
+          sample: "Nous [refusons] les insultes et nous [rassurons] son camarade avec gentillesse."
+        }
+      ],
+      ex4: [
+        {
+          letter: "a.",
+          tokens: ["Vous", "voyez", "ce", "camarade", "seul.", "•", "Vous", "verrez", "ce", "camarade", "seul."],
+          correctIndices: [1, 7]
+        },
+        {
+          letter: "b.",
+          tokens: ["Tu", "consoles", "ton", "ami.", "•", "Tu", "consoleras", "ton", "ami."],
+          correctIndices: [1, 6]
+        },
+        {
+          letter: "c.",
+          tokens: ["Ils", "écrivent", "une", "charte", "de", "classe.", "•", "Ils", "écriront", "une", "charte", "de", "classe."],
+          correctIndices: [1, 8]
+        },
+        {
+          letter: "d.",
+          tokens: ["Je", "crois", "qu'ils", "sont", "gentils.", "•", "Je", "croyais", "qu'ils", "étaient", "gentils."],
+          correctIndices: [1, 3, 7, 9]
+        },
+        {
+          letter: "e.",
+          tokens: ["Chaque", "jour,", "j'", "écoute", "mes", "amis.", "•", "Chaque", "jour,", "j'", "écoutais", "mes", "amis."],
+          correctIndices: [3, 10]
+        }
+      ],
+      ex5: [
+        {
+          letter: "a.",
+          prompt: "Chaque élève est attentif aux autres.",
+          hasTwoFields: false,
+          placeholder1: "Demain, ...",
+          accepted1: [
+            "Demain, chaque élève [sera] attentif aux autres.",
+            "Demain chaque élève [sera] attentif aux autres.",
+            "Demain, chaque élève sera attentif aux autres.",
+            "Demain chaque élève sera attentif aux autres."
+          ],
+          sample: "Demain, chaque élève [sera] attentif aux autres."
+        },
+        {
+          letter: "b.",
+          prompt: "Ce délégué surveille la cour avec sérieux.",
+          hasTwoFields: false,
+          placeholder1: "Demain, ...",
+          accepted1: [
+            "Demain, ce délégué [surveillera] la cour avec sérieux.",
+            "Demain ce délégué [surveillera] la cour avec sérieux.",
+            "Demain, ce délégué surveillera la cour avec sérieux.",
+            "Demain ce délégué surveillera la cour avec sérieux."
+          ],
+          sample: "Demain, ce délégué [surveillera] la cour avec sérieux."
+        },
+        {
+          letter: "c.",
+          prompt: "Tu invites le nouvel élève à jouer.",
+          hasTwoFields: false,
+          placeholder1: "Demain, ...",
+          accepted1: [
+            "Demain, tu [inviteras] le nouvel élève à jouer.",
+            "Demain tu [inviteras] le nouvel élève à jouer.",
+            "Demain, tu inviteras le nouvel élève à jouer.",
+            "Demain tu inviteras le nouvel élève à jouer."
+          ],
+          sample: "Demain, tu [inviteras] le nouvel élève à jouer."
+        },
+        {
+          letter: "d.",
+          prompt: "Nous admirons cette belle solidarité.",
+          hasTwoFields: false,
+          placeholder1: "Demain, ...",
+          accepted1: [
+            "Demain, nous [admirerons] cette belle solidarité.",
+            "Demain nous [admirerons] cette belle solidarité.",
+            "Demain, nous admirerons cette belle solidarité.",
+            "Demain nous admirerons cette belle solidarité."
+          ],
+          sample: "Demain, nous [admirerons] cette belle solidarité."
+        },
+        {
+          letter: "e.",
+          prompt: "Ils ont une attitude très bienveillante.",
+          hasTwoFields: false,
+          placeholder1: "Demain, ...",
+          accepted1: [
+            "Demain, ils [auront] une attitude très bienveillante.",
+            "Demain ils [auront] une attitude très bienveillante.",
+            "Demain, ils auront une attitude très bienveillante.",
+            "Demain ils auront une attitude très bienveillante."
+          ],
+          sample: "Demain, ils [auront] une attitude très bienveillante."
+        }
+      ],
+      ex6: [
+        {
+          letter: "a.",
+          prompt: "L'élève isolé retrouve le sourire.",
+          hasTwoFields: false,
+          placeholder1: "Transforme avec Nous ou Demain, ...",
+          accepted1: [
+            "Nous [retrouvons] le sourire.",
+            "Nous retrouvons le sourire.",
+            "Demain, l'élève isolé [retrouvera] le sourire.",
+            "Demain l'élève isolé [retrouvera] le sourire.",
+            "Demain, l'élève isolé retrouvera le sourire.",
+            "Demain l'élève isolé retrouvera le sourire."
+          ],
+          sample: "Demain, l'élève isolé [retrouvera] le sourire. (ou Nous [retrouvons] le sourire.)"
+        },
+        {
+          letter: "b.",
+          prompt: "Il parle directement à la maîtresse.",
+          hasTwoFields: false,
+          placeholder1: "Transforme avec Nous ou Demain, ...",
+          accepted1: [
+            "Nous [parlons] directement à la maîtresse.",
+            "Nous parlons directement à la maîtresse.",
+            "Demain, il [parlera] directement à la maîtresse.",
+            "Demain il [parlera] directement à la maîtresse.",
+            "Demain, il parlera directement à la maîtresse.",
+            "Demain il parlera directement à la maîtresse."
+          ],
+          sample: "Nous [parlons] directement à la maîtresse. (ou Demain, il [parlera]...)"
+        },
+        {
+          letter: "c.",
+          prompt: "Dans la cour, les médiateurs calment les disputes.",
+          hasTwoFields: false,
+          placeholder1: "Transforme avec Nous ou Demain, ...",
+          accepted1: [
+            "Dans la cour, nous [calmons] les disputes.",
+            "Dans la cour nous [calmons] les disputes.",
+            "Dans la cour, nous calmons les disputes.",
+            "Demain, dans la cour, les médiateurs [calmeront] les disputes.",
+            "Demain, les médiateurs [calmeront] les disputes dans la cour.",
+            "Demain, les médiateurs calmeront les disputes."
+          ],
+          sample: "Dans la cour, nous [calmons] les disputes. (ou Demain, les médiateurs [calmeront]...)"
+        },
+        {
+          letter: "d.",
+          prompt: "Ils préfèrent aider leurs camarades.",
+          hasTwoFields: false,
+          placeholder1: "Transforme avec Nous ou Demain, ...",
+          accepted1: [
+            "Nous [préférons] aider nos camarades.",
+            "Nous [préférons] aider leurs camarades.",
+            "Nous préférons aider nos camarades.",
+            "Nous préférons aider leurs camarades.",
+            "Demain, ils [préféreront] aider leurs camarades.",
+            "Demain ils [préféreront] aider leurs camarades.",
+            "Demain, ils préféreront aider leurs camarades."
+          ],
+          sample: "Nous [préférons] aider nos camarades. (ou Demain, ils [préféreront]...)"
+        }
+      ],
+      ex7: [
+        {
+          letter: "a.",
+          tokens: ["La", "solidarité", "change", "l'ambiance", "de", "l'école."],
+          correctIndices: [2]
+        },
+        {
+          letter: "b.",
+          tokens: ["Ce", "groupe", "accueille", "le", "nouvel", "élève."],
+          correctIndices: [2]
+        },
+        {
+          letter: "c.",
+          tokens: ["Les", "enfants", "utilisent", "des", "mots", "bienveillants."],
+          correctIndices: [2]
+        },
+        {
+          letter: "d.",
+          tokens: ["Vous", "imaginez", "des", "solutions", "pour", "aider", "Paul."],
+          correctIndices: [1]
+        },
+        {
+          letter: "e.",
+          tokens: ["Tu", "dessinais", "une", "affiche", "contre", "le", "harcèlement."],
+          correctIndices: [1]
+        }
+      ],
+      ex8: [
+        {
+          letter: "a.",
+          prompt: "Dans la cour, les élèves <strong>schtroumpfent</strong> (indice : verbe <em>protéger</em> au présent) leur camarade.",
+          hasTwoFields: false,
+          placeholder1: "Écris le verbe conjugué...",
+          accepted1: ["protègent"],
+          sample: "protègent (Les élèves protègent leur camarade.)"
+        },
+        {
+          letter: "b.",
+          prompt: "Demain, nous <strong>schtroumpferons</strong> (indice : verbe <em>écouter</em> au futur) la victime avec attention.",
+          hasTwoFields: false,
+          placeholder1: "Écris le verbe conjugué...",
+          accepted1: ["écouterons"],
+          sample: "écouterons (Demain, nous écouterons la victime.)"
+        },
+        {
+          letter: "c.",
+          prompt: "Hier, tu <strong>schtroumpfais</strong> (indice : verbe <em>aider</em> à l'imparfait) ton voisin de classe.",
+          hasTwoFields: false,
+          placeholder1: "Écris le verbe conjugué...",
+          accepted1: ["aidais"],
+          sample: "aidais (Hier, tu aidais ton voisin de classe.)"
+        }
+      ]
+    };
+
+    const TOTAL_EXERCISES = 8;
+    const validatedState = {
+      ex1: false, ex2: false, ex3: false, ex4: false,
+      ex5: false, ex6: false, ex7: false, ex8: false
+    };
+
+    /* ==========================================================================
+       2. DÉLÉGATION GLOBALE DES ÉVÉNEMENTS (100 % DES BOUTONS ACTIFS)
+       ========================================================================== */
+    document.addEventListener("click", (event) => {
+      const target = event.target.closest("button, .verb-label, .token");
+      if (!target) return;
+
+      // 1. Boutons de la barre de navigation sticky
+      if (target.matches(".nav-btn")) {
+        switchSection(target.dataset.target);
+        return;
+      }
+
+      // 2. Boutons Précédent / Suivant / Tout afficher
+      if (target.hasAttribute("data-go")) {
+        switchSection(target.dataset.go);
+        return;
+      }
+
+      // 3. Bouton Réinitialiser les étiquettes de découverte
+      if (target.id === "btn-reset-labels") {
+        renderDiscoveryLabels();
+        return;
+      }
+
+      // 4. Étiquettes de conjugaison cliquables (Leçon)
+      if (target.classList.contains("verb-label")) {
+        const states = ["", "tense-present", "tense-imparfait", "tense-futur"];
+        const nextStep = (parseInt(target.dataset.step || "0", 10) + 1) % states.length;
+        target.dataset.step = String(nextStep);
+        target.className = ("verb-label " + states[nextStep]).trim();
+        return;
+      }
+
+      // 5. Boutons Afficher / Masquer les réponses (Leçon)
+      if (target.classList.contains("btn-reveal")) {
+        const ansEl = document.getElementById(target.dataset.answer);
+        if (ansEl) {
+          const isVisible = ansEl.classList.toggle("visible");
+          target.textContent = isVisible ? "🙈 Masquer la réponse" : "👁 Afficher la réponse";
+        }
+        return;
+      }
+
+      // 6. Mots cliquables (Tokens des exercices 4 et 7)
+      if (target.classList.contains("token")) {
+        target.classList.remove("correct-token", "wrong-token");
+        target.classList.toggle("selected");
+        return;
+      }
+
+      // 7. Boutons Vérifier / Recommencer (Exercices à mots cliquables)
+      if (target.hasAttribute("data-check-tokens")) {
+        checkTokensEx(target.dataset.checkTokens);
+        return;
+      }
+      if (target.hasAttribute("data-reset-tokens")) {
+        resetTokensEx(target.dataset.resetTokens);
+        return;
+      }
+
+      // 8. Boutons Vérifier / Recommencer (Exercices de transformation)
+      if (target.hasAttribute("data-check-transform")) {
+        checkTransformEx(target.dataset.checkTransform);
+        return;
+      }
+      if (target.hasAttribute("data-reset-transform")) {
+        resetTransformEx(target.dataset.resetTransform);
+        return;
+      }
+    });
+
+    /* ==========================================================================
+       3. FONCTIONS DE NAVIGATION, RENDU ET VALIDATION
+       ========================================================================== */
+    function switchSection(target) {
+      document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.target === target);
+      });
+
+      const allCards = document.querySelectorAll(".section-card");
+      if (target === "all") {
+        allCards.forEach(card => card.classList.remove("hidden"));
+      } else {
+        allCards.forEach(card => {
+          card.classList.toggle("hidden", card.id !== `sec-${target}`);
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+
+    function markExerciseValidated(exId, isValid) {
+      validatedState[exId] = isValid;
+      const navBtn = document.getElementById(`nav-${exId}`);
+      if (navBtn) {
+        navBtn.classList.toggle("completed", isValid);
+      }
+      const totalValid = Object.values(validatedState).filter(Boolean).length;
+      document.getElementById("globalScore").textContent = `⭐ Exercices validés : ${totalValid} / ${TOTAL_EXERCISES}`;
+    }
+
+    function renderDiscoveryLabels() {
+      const container = document.getElementById("discovery-labels");
+      if (!container) return;
+      container.innerHTML = "";
+      DISCOVERY_LABELS.forEach(text => {
+        const div = document.createElement("div");
+        div.className = "verb-label";
+        div.textContent = text;
+        div.dataset.step = "0";
+        container.appendChild(div);
+      });
+    }
+
+    function renderTokensEx(exId) {
+      const container = document.getElementById(`${exId}-container`);
+      if (!container) return;
+      container.innerHTML = "";
+
+      EXERCISES_DATA[exId].forEach((row, rowIdx) => {
+        const rowDiv = document.createElement("div");
+        rowDiv.className = "token-row";
+        rowDiv.dataset.row = rowIdx;
+
+        const letterSpan = document.createElement("span");
+        letterSpan.className = "row-letter";
+        letterSpan.textContent = row.letter;
+        rowDiv.appendChild(letterSpan);
+
+        row.tokens.forEach((word, tokIdx) => {
+          if (word === "•") {
+            const sep = document.createElement("span");
+            sep.textContent = "•";
+            sep.style.color = "var(--accent-blue)";
+            sep.style.fontWeight = "bold";
+            sep.style.margin = "0 0.35rem";
+            rowDiv.appendChild(sep);
+            return;
+          }
+          const tokSpan = document.createElement("span");
+          tokSpan.className = "token";
+          tokSpan.textContent = word;
+          tokSpan.dataset.index = tokIdx;
+          rowDiv.appendChild(tokSpan);
+        });
+
+        container.appendChild(rowDiv);
+      });
+    }
+
+    function checkTokensEx(exId) {
+      const container = document.getElementById(`${exId}-container`);
+      const rows = container.querySelectorAll(".token-row");
+      let totalCorrectTokens = 0;
+      let foundCorrectTokens = 0;
+      let wrongSelections = 0;
+
+      EXERCISES_DATA[exId].forEach((rowData, rowIdx) => {
+        const rowEl = rows[rowIdx];
+        const tokens = rowEl.querySelectorAll(".token");
+        totalCorrectTokens += rowData.correctIndices.length;
+
+        tokens.forEach(tokEl => {
+          const tokIdx = parseInt(tokEl.dataset.index, 10);
+          tokEl.classList.remove("correct-token", "wrong-token");
+          const isSelected = tokEl.classList.contains("selected");
+          const shouldBeSelected = rowData.correctIndices.includes(tokIdx);
+
+          if (isSelected && shouldBeSelected) {
+            tokEl.classList.add("correct-token");
+            foundCorrectTokens++;
+          } else if (isSelected && !shouldBeSelected) {
+            tokEl.classList.add("wrong-token");
+            wrongSelections++;
+          }
+        });
+      });
+
+      const fb = document.getElementById(`fb-${exId}`);
+      if (foundCorrectTokens === totalCorrectTokens && wrongSelections === 0) {
+        fb.className = "feedback-banner success";
+        fb.innerHTML = `🎉 Bravo ! Tu as repéré tous les verbes conjugués sans aucune erreur (${foundCorrectTokens}/${totalCorrectTokens}).`;
+        markExerciseValidated(exId, true);
+      } else {
+        fb.className = "feedback-banner error";
+        const hint = exId === "ex4"
+          ? "Indice : Compare les deux phrases de chaque ligne et clique uniquement sur les mots qui changent de forme entre le présent et le futur/imparfait."
+          : "Indice : Essaie de remplacer le sujet par « Nous » dans ta tête : le mot qui change de terminaison est le verbe conjugué !";
+        fb.innerHTML = `❌ Pas encore tout à fait : ${foundCorrectTokens}/${totalCorrectTokens} verbe(s) trouvé(s), ${wrongSelections} erreur(s).<br><small>${hint}</small>`;
+        markExerciseValidated(exId, false);
+      }
+    }
+
+    function resetTokensEx(exId) {
+      renderTokensEx(exId);
+      const fb = document.getElementById(`fb-${exId}`);
+      fb.className = "feedback-banner";
+      fb.textContent = "";
+      markExerciseValidated(exId, false);
+    }
+
+    function renderTransformEx(exId) {
+      const container = document.getElementById(`${exId}-container`);
+      if (!container) return;
+      container.innerHTML = "";
+
+      EXERCISES_DATA[exId].forEach((item, idx) => {
+        const div = document.createElement("div");
+        div.className = "transform-item";
+
+        if (item.hasTwoFields) {
+          div.innerHTML = `
+            <div class="transform-prompt">
+              <strong style="color: var(--accent-amber);">${item.letter}</strong> ${item.prompt}
+            </div>
+            <div class="double-input-row">
+              <input type="text" class="transform-input" id="${exId}-input1-${idx}" placeholder="${item.placeholder1}" autocomplete="off">
+              <input type="text" class="transform-input" id="${exId}-input2-${idx}" placeholder="${item.placeholder2}" autocomplete="off">
+            </div>
+            <div class="item-correction" id="${exId}-corr-${idx}">
+              💡 Correction attendue : <strong>${item.sample}</strong>
+            </div>
+          `;
+        } else {
+          div.innerHTML = `
+            <div class="transform-prompt">
+              <strong style="color: var(--accent-amber);">${item.letter}</strong> ${item.prompt}
+            </div>
+            <input type="text" class="transform-input" id="${exId}-input1-${idx}" placeholder="${item.placeholder1}" autocomplete="off">
+            <div class="item-correction" id="${exId}-corr-${idx}">
+              💡 Correction possible : <strong>${item.sample}</strong>
+            </div>
+          `;
+        }
+
+        container.appendChild(div);
+      });
+    }
+
+    function normalizeText(str) {
+      return str
+        .toLowerCase()
+        .replace(/[’']/g, "'")
+        .replace(/[\[\]]/g, "")
+        .replace(/\s+/g, " ")
+        .replace(/\s+([,.;!?])/g, "$1")
+        .replace(/[.!?]+$/g, "")
+        .trim();
+    }
+
+    function checkTransformEx(exId) {
+      let correctCount = 0;
+      const items = EXERCISES_DATA[exId];
+
+      items.forEach((item, idx) => {
+        const input1 = document.getElementById(`${exId}-input1-${idx}`);
+        const corrEl = document.getElementById(`${exId}-corr-${idx}`);
+        const norm1 = normalizeText(input1.value);
+        const match1 = item.accepted1.some(ans => normalizeText(ans) === norm1);
+
+        input1.classList.remove("is-correct", "is-wrong");
+
+        if (item.hasTwoFields) {
+          const input2 = document.getElementById(`${exId}-input2-${idx}`);
+          const norm2 = normalizeText(input2.value);
+          const match2 = item.accepted2.some(ans => normalizeText(ans) === norm2);
+
+          input2.classList.remove("is-correct", "is-wrong");
+          input1.classList.add(match1 ? "is-correct" : "is-wrong");
+          input2.classList.add(match2 ? "is-correct" : "is-wrong");
+
+          if (match1 && match2) {
+            correctCount++;
+            corrEl.classList.remove("visible");
+          } else {
+            corrEl.classList.add("visible");
+          }
+        } else {
+          input1.classList.add(match1 ? "is-correct" : "is-wrong");
+          if (match1) {
+            correctCount++;
+            corrEl.classList.remove("visible");
+          } else {
+            corrEl.classList.add("visible");
+          }
+        }
+      });
+
+      const fb = document.getElementById(`fb-${exId}`);
+      if (correctCount === items.length) {
+        fb.className = "feedback-banner success";
+        fb.innerHTML = `🎉 Parfait ! Toutes tes réponses (${correctCount}/${items.length}) sont justes !`;
+        markExerciseValidated(exId, true);
+      } else {
+        fb.className = "feedback-banner error";
+        fb.innerHTML = `❌ ${correctCount} réponse(s) juste(s) sur ${items.length}. Regarde les corrections affichées sous tes champs.<br><small>Indice : Vérifie bien l'accord du verbe avec le sujet (ex. : avec « nous », le verbe se termine presque toujours par -ons).</small>`;
+        markExerciseValidated(exId, false);
+      }
+    }
+
+    function resetTransformEx(exId) {
+      renderTransformEx(exId);
+      const fb = document.getElementById(`fb-${exId}`);
+      fb.className = "feedback-banner";
+      fb.textContent = "";
+      markExerciseValidated(exId, false);
+    }
+
+    /* Initialisation immédiate ou au chargement du DOM */
+    function initApp() {
+      renderDiscoveryLabels();
+      renderTransformEx("ex1");
+      renderTransformEx("ex2");
+      renderTransformEx("ex3");
+      renderTokensEx("ex4");
+      renderTransformEx("ex5");
+      renderTransformEx("ex6");
+      renderTokensEx("ex7");
+      renderTransformEx("ex8");
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initApp);
+    } else {
+      initApp();
+    }
+  </script>
+</body>
+</html>
